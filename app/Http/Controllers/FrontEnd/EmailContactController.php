@@ -17,7 +17,7 @@ class EmailContactController extends Controller
             'message' => 'required'
         ]);
 
-        Mail::to()->send(new ContactMail($data));
+        Mail::to("info@bashonatrading.com")->send(new ContactMail($data));
 
         return redirect()->back()->with('success', 'Thanks for contacting us. We will get back to you soon.');
     }
