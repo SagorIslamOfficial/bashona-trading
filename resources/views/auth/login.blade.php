@@ -74,10 +74,8 @@
 
                     </div>
                     <div class="card col-md-5 text-white bg-primary py-5">
-                        <div class="card-body text-center">
-                            <div>
-                                <img style="width: 465px; height: 427px" src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
-                            </div>
+                        <div>
+                            <img style="width: 420px; height: 415px" src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
                         </div>
                     </div>
                 </div>
