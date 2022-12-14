@@ -17,8 +17,8 @@ class EmailContactController extends Controller
             'message' => 'required'
         ]);
 
-        Mail::to('alaminislam1274@gmail.com')->send(new ContactMail($data));
+        Mail::to()->send(new ContactMail($data));
 
-        return redirect()->back()->with('success', 'Email sent successfully :)');
+        return redirect()->back()->with('success', 'Thanks for contacting us. We will get back to you soon.');
     }
 }
