@@ -47,11 +47,13 @@ use App\Http\Controllers\FrontEnd\FrontEndController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/phpinfo', function() {
-    return phpinfo();
-});
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
 
 //FrontEnd Controllers
 Route::get('/', [FrontEndController::class, 'index'])->name('front-end-home');

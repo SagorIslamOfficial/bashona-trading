@@ -6,51 +6,18 @@
     <meta charset="utf-8"/>
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport"/>
-    <meta content="CoreUI - Open Source Bootstrap Admin Template" name="description"/>
-    <meta content="Łukasz Holeczek" name="author"/>
-    <meta content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard" name="keyword"/>
+    <meta content="Bashona Trading Ltd" name="description"/>
+    <meta content="bashonatrading.com" name="author"/>
+    <meta content="Bashona Trading Ltd" name="keyword"/>
+
     <title>Login - Admin Dashboard - Bashona Trading Ltd</title>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-57x57.png') }}" rel="apple-touch-icon" sizes="57x57"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-60x60.png') }}" rel="apple-touch-icon" sizes="60x60"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-76x76.png') }}" rel="apple-touch-icon" sizes="76x76"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-120x120.png') }}" rel="apple-touch-icon" sizes="120x120"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-152x152.png') }}" rel="apple-touch-icon" sizes="152x152"/>
-    <link href="{{ asset('backEnd/assets/favicon/apple-icon-180x180.png') }}" rel="apple-touch-icon" sizes="180x180"/>
-    <link href="{{ asset('backEnd/assets/favicon/android-icon-192x192.png') }}" rel="icon" sizes="192x192"
-          type="image/png"/>
-    <link href="{{ asset('backEnd/assets/favicon/favicon-32x32.png') }}" rel="icon" sizes="32x32" type="image/png"/>
-    <link href="{{ asset('backEnd/assets/favicon/favicon-96x96.png') }}" rel="icon" sizes="96x96" type="image/png"/>
-    <link href="{{ asset('backEnd/assets/favicon/favicon-16x16.png') }}" rel="icon" sizes="16x16" type="image/png"/>
-    <link href="{{ asset('backEnd/assets/favicon/manifest.json') }}" rel="manifest"/>
-    <meta content="#ffffff" name="msapplication-TileColor"/>
-    <meta content="{{ asset('backEnd/assets/favicon/ms-icon-144x144.png') }}" name="msapplication-TileImage"/>
-    <meta content="#ffffff" name="theme-color"/>
-    <!-- Vendors styles-->
-    <link href="{{ asset('backEnd/vendors/simplebar/css/simplebar.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('backEnd/css/vendors/simplebar.css') }}" rel="stylesheet"/>
+
+    <link rel="shortcut icon" href="{{ asset('frontEnd/img/favicon.png') }}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="{{ asset('frontEnd/img/favicon.png') }}">
+
     <!-- Main styles for this application-->
     <link href="{{ asset('backEnd/css/style.css') }}" rel="stylesheet"/>
-    <!-- We use those styles to show code examples, you should remove them in your application.-->
-    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css" rel="stylesheet"/>
     <link href="{{ asset('backEnd/css/examples.css') }}" rel="stylesheet"/>
-    <!-- Global site tag (gtag.js) - Google Analytics-->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag("js", new Date());
-        // Shared ID
-        gtag("config", "UA-118965717-3");
-        // Bootstrap ID
-        gtag("config", "UA-118965717-5");
-    </script>
 </head>
 <body>
 <div class="bg-light min-vh-100 d-flex flex-row align-items-center">
@@ -109,12 +76,7 @@
                     <div class="card col-md-5 text-white bg-primary py-5">
                         <div class="card-body text-center">
                             <div>
-                                <h2>Sign up</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
-                                {{--                                <button ></button>--}}
-                                <a class="btn btn-lg btn-outline-light mt-3" type="button"
-                                   href="{{ route('register') }}">Register Now!</a>
+                                <img src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
                             </div>
                         </div>
                     </div>
@@ -125,7 +87,5 @@
 </div>
 <!-- CoreUI and necessary plugins-->
 <script src="{{ asset('backEnd/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
-<script src="{{ asset('backEnd/vendors/simplebar/js/simplebar.min.js') }}"></script>
-<script></script>
 </body>
 </html>
