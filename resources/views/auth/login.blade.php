@@ -25,7 +25,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="card-group d-block d-md-flex row">
-                    <div class="card col-md-7 p-4 mb-0">
+                    <div class="card col-md-6 p-4 mb-0">
 
                         <div class="card-body">
                             <h1>{{ __('Login') }}</h1>
@@ -73,10 +73,8 @@
                         </div>
 
                     </div>
-                    <div class="card col-md-5 text-white bg-primary py-5">
-                        <div>
-                            <img style="width: 420px; height: 415px" src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
-                        </div>
+                    <div class="card col-md-6">
+                        <img style="height: 350px; width: 400px;" src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
                     </div>
                 </div>
             </div>
