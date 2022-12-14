@@ -1,0 +1,78 @@
+#
+
+About Us:
+    -headingAboutUs - String
+    -subTextAboutUs - LongText
+
+    -headingAboutUsTeam - String
+    -subTextAboutUsTeam - LongText
+
+    -headingAboutUsClient - String
+    -subTextAboutUsClient - LongText
+
+Company:
+    -headingCompanies - String
+    -subTextCompanies - LongText
+
+    -headingCompanyTeam - String
+    -subTextCompanyTeam - LongText
+
+    Single Company:
+        Art Venture:
+            -headingArtVentureCompany - String
+            -subTextArtVentureCompany - LongText
+
+            -headingArtVentureCompanyService - String
+            -subTextArtVentureCompanyService - LongText
+            -portfolioTextArtVentureCompanyService - String
+
+            -headingArtVentureCompanyTeam - String
+            -subTextArtVentureCompanyTeam - LongText
+
+        Tns:
+            -headingTnsCompany - String
+            -subTextTnsCompany - LongText
+
+            -headingTnsCompanyService - String
+            -subTextTnsCompanyService - LongText
+            -portfolioTextTnsCompanyService - String
+
+            -headingTnsCompanyTeam - String
+            -subTextTnsCompanyTeam - LongText
+
+        BD Digital:
+            -headingBdDigitalCompany - String
+            -subTextBdDigitalCompany - LongText
+
+            -headingBdDigitalCompanyService - String
+            -subTextBdDigitalCompanyService - LongText
+            -portfolioTextBdDigitalCompanyService - String
+
+            -headingBdDigitalCompanyTeam - String
+            -subTextBdDigitalCompanyTeam - LongText
+
+        Connect To Fly:
+            -headingConnectToFlyCompany - String
+            -subTextConnectToFlyCompany - LongText
+
+            -headingConnectToFlyCompanyService - String
+            -subTextConnectToFlyCompanyService - LongText
+            -portfolioTextConnectToFlyCompanyService - String
+
+            -headingConnectToFlyCompanyTeam - String
+            -subTextConnectToFlyCompanyTeam - LongText
+
+Service:
+    -headingService - String
+    -subTextService - LongText
+
+Gallery:
+    -headingGallery - String
+    -subTextGallery - LongText
+
+Contact:
+    -headingContact - String
+    -subTextContact - LongText
+
+    -headingContactUs - String
+    -subTextContactUs - LongText
