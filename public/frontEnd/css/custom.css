@@ -5,15 +5,10 @@ html {
 body::-webkit-scrollbar {
     width: 15px;
 }
-body {
-    font-family: Raleway,Roboto,Arial,sans-serif !important;
-    /*scrollbar-width: thin;*/
-    /*scrollbar-color: var(--thumbBG) var(--scrollbarBG);*/
-}
 
-h1, h2, h3, h4{
-    font-weight: 700 !important;
-}
+/*h1, h2, h3, h4{*/
+/*    font-weight: 700 !important;*/
+/*}*/
 
 body::-webkit-scrollbar-track {
     background: var(--scrollbarBG);
