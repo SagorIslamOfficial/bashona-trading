@@ -74,7 +74,7 @@
 
                     </div>
                     <div class="card col-md-6">
-                        <img style="height: 350px; width: 427.5px;" src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
+                        <img style="height: 350px; width: 427.5px; margin-left: -3%;" src="{{ asset('backEnd/img/export-import.jpg') }}" alt="Login Form for bashonatrading.com">
                     </div>
                 </div>
             </div>
