@@ -1,9 +1,9 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Bashona Trading Ltd.',
+    'name' => 'Bashona Trading Ltd',
     'env' => 'local',
-    'debug' => true,
+    'debug' => false,
     'url' => 'https://www.bashonatrading.com/',
     'asset_url' => NULL,
     'timezone' => 'UTC',
@@ -195,7 +195,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/framework/cache/data',
+        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -368,13 +368,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/app',
+        'root' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/app/public',
+        'root' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/app/public',
         'url' => 'https://www.bashonatrading.com//storage',
         'visibility' => 'public',
         'throw' => false,
@@ -394,7 +394,7 @@
     ),
     'links' => 
     array (
-      '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/public/storage' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/app/public',
+      '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/public/storage' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/app/public',
     ),
   ),
   'hashing' => 
@@ -437,13 +437,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/logs/laravel.log',
+        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/logs/laravel.log',
+        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -495,7 +495,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/logs/laravel.log',
+        'path' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -511,7 +511,7 @@
         'port' => '465',
         'encryption' => 'ssl',
         'username' => 'info@bashonatrading.com',
-        'password' => 'q!YCN}NUzGlB',
+        'password' => '&[W#gzJbi2Yb',
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
@@ -554,14 +554,14 @@
     'from' => 
     array (
       'address' => 'info@bashonatrading.com',
-      'name' => 'Bashona Trading Ltd.',
+      'name' => 'Bashona Trading Ltd',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/resources/views/vendor/mail',
+        0 => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -667,7 +667,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/framework/sessions',
+    'files' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -687,9 +687,9 @@
   array (
     'paths' => 
     array (
-      0 => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/resources/views',
+      0 => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/resources/views',
     ),
-    'compiled' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/demo/storage/framework/views',
+    'compiled' => '/Users/sagorislam/Dropbox/Website Development/Tns IT & Design/git_projects/bashona-trading/storage/framework/views',
   ),
   'tinker' => 
   array (

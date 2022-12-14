@@ -47,8 +47,6 @@ use App\Http\Controllers\FrontEnd\FrontEndController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-//Auth::routes();
-
 Auth::routes([
     'register' => false, // Registration Routes...
     'reset' => false, // Password Reset Routes...
