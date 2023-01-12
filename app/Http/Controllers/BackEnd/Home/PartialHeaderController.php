@@ -124,7 +124,7 @@ class  PartialHeaderController extends Controller
         $request->validate([
             'number_1' => 'required',
             'email_1' => 'required',
-            'logo' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:512',
+            'logo' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:512',
             'text' => 'required'
         ]);
 

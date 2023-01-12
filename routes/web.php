@@ -3,8 +3,6 @@
 //Import Controllers
 use App\Http\Controllers\BackEnd\AboutUs\AboutUsController;
 use App\Http\Controllers\BackEnd\AboutUs\AboutUsTeamController;
-use App\Http\Controllers\BackEnd\AboutUs\TeamCategoryController;
-use App\Http\Controllers\BackEnd\AboutUs\TeamMemberController;
 use App\Http\Controllers\BackEnd\BackendController;
 use App\Http\Controllers\BackEnd\ClientController;
 use App\Http\Controllers\BackEnd\Company\AddCompanyController;
@@ -56,7 +54,6 @@ Auth::routes([
 //FrontEnd Controllers
 Route::get('/', [FrontEndController::class, 'index'])->name('front-end-home');
 Route::get('/about-us', [FrontEndController::class, 'aboutUs'])->name('front-end-about-us');
-
 //Company
 Route::group(['prefix' => 'company'], function (){
     Route::get('/', [FrontEndController::class, 'company'])->name('front-end-company');
@@ -81,16 +78,13 @@ Route::group(['prefix' => 'company'], function (){
         Route::get('/service/details/{slug}', [FrontEndController::class, 'companyConnectToFlyServiceDetails'])->name('front-end-company-ctf-service-details');
     });
 });
-
 //Service
 Route::group(['prefix' => 'service'], function (){
     Route::get('/', [FrontEndController::class, 'service'])->name('front-end-service');
     Route::get('/details/{slug}', [FrontEndController::class, 'serviceDetails'])->name('front-end-service-details');
 });
-
 //Gallery
 Route::get('/gallery', [FrontEndController::class, 'gallery'])->name('front-end-gallery');
-
 //Contact
 Route::get('/contact', [FrontEndController::class, 'contact'])->name('front-end-contact');
 Route::post('/contact', [EmailContactController::class, 'store'])->name('front-end-contact-email');
@@ -104,8 +98,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'about-us'], function (){
         Route::resource('about-us', AboutUsController::class);
         Route::resource('about-team', AboutUsTeamController::class);
-        Route::resource('team-category', TeamCategoryController::class);
-        Route::resource('team-member', TeamMemberController::class);
     });
 
     //Company
@@ -162,18 +154,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     //Heading & Sub Text
     Route::group(['prefix' => 'heading-and-sub-text'], function (){
-        Route::resource('hst-about-us', HeadingAboutUsController::class); //Done
+        Route::resource('hst-about-us', HeadingAboutUsController::class);
 
         Route::group(['prefix' => 'companies'], function (){
-            Route::resource('hst-companies', HeadingCompanyController::class); //Done
-            Route::resource('hst-art-venture', HeadingArtVentureCompanyController::class); //Done
-            Route::resource('hst-bd-digital', HeadingBdDigitalCompanyController::class); //Done
-            Route::resource('hst-tns', HeadingTnsCompanyController::class); //Done
-            Route::resource('hst-connect-to-fly', HeadingConnectToFlyCompanyController::class); //Done
+            Route::resource('hst-companies', HeadingCompanyController::class);
+            Route::resource('hst-art-venture', HeadingArtVentureCompanyController::class);
+            Route::resource('hst-bd-digital', HeadingBdDigitalCompanyController::class);
+            Route::resource('hst-tns', HeadingTnsCompanyController::class);
+            Route::resource('hst-connect-to-fly', HeadingConnectToFlyCompanyController::class);
         });
 
-        Route::resource('hst-service', HeadingServiceController::class); //Done
-        Route::resource('hst-gallery', HeadingGalleryController::class); //Done
-        Route::resource('hst-contact-us', HeadingContactController::class); //Done
+        Route::resource('hst-service', HeadingServiceController::class);
+        Route::resource('hst-gallery', HeadingGalleryController::class);
+        Route::resource('hst-contact-us', HeadingContactController::class);
     });
 });

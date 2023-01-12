@@ -12,10 +12,10 @@
 <script src="{{ asset('frontEnd/vendor/magnific-popup/jquery.magnific-popup.min.js') }}"></script>
 <!-- Theme Base, Components and Settings -->
 <script src="{{ asset('frontEnd/js/theme.js') }}"></script>
-<!-- Current Page Vendor and Views -->
-<script src="{{ asset('frontEnd/vendor/bootpag/jquery.bootpag.min.js') }}"></script>
 <!-- Theme Initialization Files -->
 <script src="{{ asset('frontEnd/js/theme.init.js') }}"></script>
+
+<script src="{{ asset('frontEnd/js/examples/examples.portfolio.js') }}"></script>
 
 <!-- Custom Js -->
 <script src="{{ asset('frontEnd/js/custom.js') }}"></script>

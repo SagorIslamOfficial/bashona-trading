@@ -3,7 +3,7 @@
 @section('title', 'Companies |')
 
 @section('content')
-    <section class="page-header page-header-modern bg-color-light-scale-1 page-header-md">
+    <section class="page-header page-header-modern bg-color-light-scale-1 page-header-md" style="background: #ffffff !important;">
         <div class="container-fluid">
             <div class="row align-items-center">
 
@@ -109,7 +109,7 @@
                     </div>
                 @endforeach
                 @foreach ($companyTnsTeams as $key => $companyTnsTeam)
-                        <div class="col-sm-6 col-lg-3 isotope-item pb-4 tns">
+                    <div class="col-sm-6 col-lg-3 isotope-item pb-4 tns">
                         <span class="thumb-info thumb-info-swap-content thumb-info-centered-icons thumb-info-wrapper-direction-aware">
                             <span class="thumb-info-wrapper">
                                 <img src="{{ asset('storage/company/all-company/tns/team/' . $companyTnsTeam->image) }}" class="img-fluid" alt="{{ $companyTnsTeam->name }}">
@@ -137,7 +137,7 @@
                                 </span>
                             </span>
                         </span>
-                        </div>
+                    </div>
                 @endforeach
                 @foreach($companyBdDigitalTeams as $companyBdDigitalTeam)
                     <div class="col-sm-6 col-lg-3 isotope-item pb-4 bd-digital">

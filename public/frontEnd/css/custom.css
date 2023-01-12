@@ -193,6 +193,18 @@ html .bg-color-dark, html .bg-dark {
     padding-top: 10% !important;
 }
 
+#footer {
+    border-top: none;
+    background: #56c6ca;
+    height: 90.1vh;
+}
+
+#footer .footer-copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 #footer .logo img {
     width: 160px;
     height: 48px;

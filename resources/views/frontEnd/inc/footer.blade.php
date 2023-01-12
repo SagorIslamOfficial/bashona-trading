@@ -1,4 +1,4 @@
-<footer id="footer" class="mt-0" style="background-color: #56c6ca !important; border-color: #56c6ca !important;">
+<footer id="footer" class="mt-0">
     <div class="container pl custom-foo">
         <div class="row py-5 my-4 custom-foo-inner">
 

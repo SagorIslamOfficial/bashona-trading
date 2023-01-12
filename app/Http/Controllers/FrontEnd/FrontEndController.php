@@ -56,14 +56,9 @@ class FrontEndController extends Controller
         $footerSocialLinks = FooterSocialLink::all();
         $aboutUs = AboutUs::first();
         $companies = AddCompany::all();
-        $companyArtVentureServiceItems = ArtVentureItem::all();
-        $companyTnsServiceItems = TnsServiceItem::all();
-        $companyBdDigitalServiceItems = BdDigitalServiceItem::all();
-        $companyConnectToFlyServiceItems = ConnectToFlyServiceItem::all();
         $companyHeadingAndSubText = Company::first();
-        $serviceHeadingAndSubText = Service::first();
         $aboutUsHeadingAndSubText = \App\Models\BackEnd\SectionDivider\AboutUs\AboutUs::first();
-        return view('frontEnd.home', compact('clients', 'partial_header', 'aboutUs', 'footerQuickLinks', 'footerTags', 'sliders', 'footerSocialLinks', 'companies', 'companyArtVentureServiceItems', 'companyTnsServiceItems', 'companyBdDigitalServiceItems', 'companyConnectToFlyServiceItems', 'companyHeadingAndSubText', 'serviceHeadingAndSubText', 'aboutUsHeadingAndSubText'));
+        return view('frontEnd.home', compact('clients', 'partial_header', 'aboutUs', 'footerQuickLinks', 'footerTags', 'sliders', 'footerSocialLinks', 'companies', 'companyHeadingAndSubText', 'aboutUsHeadingAndSubText'));
     }
     //Home End
 

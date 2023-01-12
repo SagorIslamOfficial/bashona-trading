@@ -320,6 +320,7 @@
             }
         });
     });
+
     var portfolioLoadMore = {
         pages: 0,
         currentPage: 1,
@@ -384,6 +385,11 @@
     if ($('#portfolioLoadMoreWrapper').get(0)) {
         portfolioLoadMore.build();
     }
+
+
+
+
+
     var portfolioPagination = {
         pages: 0,
         $wrapper: $('#portfolioPaginationWrapper'),
@@ -439,6 +445,10 @@
     if ($('#portfolioPagination').get(0)) {
         portfolioPagination.init();
     }
+
+
+
+
     if ($('#combinationFilters').get(0)) {
         $(window).on('load', function() {
             setTimeout(function() {
@@ -537,4 +547,5 @@
             });
         });
     }
+
 }).apply(this, [jQuery]);
