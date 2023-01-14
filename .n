@@ -1,3 +1,2 @@
-#Key ........................... base64:T4BA1p7RoS5UzzfAer80OkC3jpIY+mzBQZsdyW1TutQ=
-#Cipher ........................ AES-256-CBC
-#Encrypted file ................ .env.encrypted
+#K-base64:T4BA1p7RoS5UzzfAer80OkC3jpIY+mzBQZsdyW1TutQ=
+
