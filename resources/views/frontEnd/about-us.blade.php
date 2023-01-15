@@ -39,7 +39,7 @@
                     style="animation-delay: 200ms">
                     <h2 class="font-weight-bold text-color-black text-7 mb-2 about_us_custom">{{ $aboutUs->heading }}</h2>
                     <p class="lead font-weight-light text-color-black text-4 text-justify">
-                        {{ $aboutUs->description }}
+                        {!!  nl2br(e($aboutUs->description)) !!}
                     </p>
 
                     <!-- <a href="#" class="btn btn-dark-scale-2 btn-px-5 btn-py-2 text-2">LEARN MORE</a> -->
@@ -90,7 +90,7 @@
                     </p>
                 </div>
                 <p class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms">
-                    {{ $aboutUsTeam->description1 }}
+                    {!!  nl2br(e($aboutUsTeam->description1)) !!}
                 </p>
 
                 <ul class="list list-icons list-icons-style-2 mt-4">
@@ -132,7 +132,7 @@
                     </p>
                 </div>
                 <p class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms">
-                    {{ $aboutUsTeam->description2 }}
+                    {!!  nl2br(e($aboutUsTeam->description2)) !!}
                 </p>
 
                 <ul class="list list-icons list-icons-style-2 mt-4">
@@ -168,7 +168,7 @@
                     </p>
                 </div>
                 <p class="lead appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700" style="animation-delay: 700ms">
-                    {{ $aboutUsTeam->description3 }}
+                    {!!  nl2br(e($aboutUsTeam->description3)) !!}
                 </p>
 
                 <ul class="list list-icons list-icons-style-2 mt-4">

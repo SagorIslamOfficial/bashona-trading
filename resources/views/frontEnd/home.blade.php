@@ -62,7 +62,7 @@
                     style="animation-delay: 200ms;">
                     <h2 class="font-weight-bold text-color-black text-7 mb-2 about_us_custom">{{ $aboutUs->heading }}</h2>
                     <p class="lead font-weight-light text-color-black text-4 text-justify">
-                        {{ Str::limit($aboutUs->description, 300) }}
+                        {!!  nl2br(e(Str::limit($aboutUs->description, 300))) !!}
                     </p>
                     <a href="{{ $aboutUs->link }}" class="btn btn-dark-scale-2 btn-px-5 btn-py-2 text-2">LEARN MORE</a>
                 </div>

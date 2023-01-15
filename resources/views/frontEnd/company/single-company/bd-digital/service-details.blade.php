@@ -61,7 +61,7 @@
         <div class="row pt-4 mt-2 mb-5">
             <div class="col-md-7 mb-4 mb-md-0">
                 <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyBdDigitalServiceItem->project_heading }}</strong></h2>
-                <p class="text-justify">{{ $singleCompanyBdDigitalServiceItem->project_description }}</p>
+                <p class="text-justify">{!! nl2br(e($singleCompanyBdDigitalServiceItem->project_description)) !!}</p>
             </div>
             <div class="col-md-5">
                 <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyBdDigitalServiceItem->project_details_heading }}</strong></h2>
