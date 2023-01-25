@@ -16,7 +16,7 @@ $app = new Illuminate\Foundation\Application(
 );
 
 //I changed .env file name to another name for security purpose.
-$app->loadEnvironmentFrom('.jodi.jai.taile.sob.sesh.mindIt');
+//$app->loadEnvironmentFrom('.jodi.jai.taile.sob.sesh.mindIt');
 
 /*
 |--------------------------------------------------------------------------
