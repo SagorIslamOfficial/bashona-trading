@@ -96,7 +96,7 @@
                         <div class="col-sm-9"><h6>:<span style="padding-left: 2%">
                                 @php($images = json_decode($viewConnectToFlyServiceItem->portfolio_images))
                                     @foreach($images as $file)
-                                        <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/connect-to-fly/service/item/portfolio/' . $file) }}" alt="{{ $viewConnectToFlyServiceItem->name }}">
+                                        <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/all-company/connect-to-fly/service/item/portfolio/' . $file) }}" alt="{{ $viewConnectToFlyServiceItem->name }}">
                                 @endforeach
                             </h6>
                         </div>

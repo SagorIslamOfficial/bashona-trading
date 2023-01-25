@@ -64,12 +64,27 @@
                 <p class="text-justify">{!! nl2br(e($singleCompanyTnsServiceItem->project_description)) !!}</p>
             </div>
             <div class="col-md-5">
-                <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyTnsServiceItem->project_details_heading }}</strong></h2>
+                @if($singleCompanyTnsServiceItem->project_details_heading == !null)
+                    <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyTnsServiceItem->project_details_heading }}</strong></h2>
+                @endif
                 <ul class="list list-icons list-primary list-borders text-2">
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_client }}: </strong> {{ $singleCompanyTnsServiceItem->project_client_content }}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_date }}: </strong>{{ $singleCompanyTnsServiceItem->project_date_content }}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_skills }}: </strong> {{ $singleCompanyTnsServiceItem->project_skills_content }}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_url }}: </strong> <a href="{{ $singleCompanyTnsServiceItem->project_link }}" target="_blank" class="text-dark">{{ $singleCompanyTnsServiceItem->project_url_content }}</a></li>
+
+                    @if($singleCompanyTnsServiceItem->project_client && $singleCompanyTnsServiceItem->project_client_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_client }}: </strong> {{ $singleCompanyTnsServiceItem->project_client_content }}</li>
+                    @endif
+
+                    @if($singleCompanyTnsServiceItem->project_date && $singleCompanyTnsServiceItem->project_date_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_date }}: </strong>{{ $singleCompanyTnsServiceItem->project_date_content }}</li>
+                    @endif
+
+                    @if($singleCompanyTnsServiceItem->project_skills && $singleCompanyTnsServiceItem->project_skills_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_skills }}: </strong> {{ $singleCompanyTnsServiceItem->project_skills_content }}</li>
+                    @endif
+
+                    @if($singleCompanyTnsServiceItem->project_url && $singleCompanyTnsServiceItem->project_link && $singleCompanyTnsServiceItem->project_url_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyTnsServiceItem->project_url }}: </strong> <a href="{{ $singleCompanyTnsServiceItem->project_link }}" target="_blank" class="text-dark">{{ $singleCompanyTnsServiceItem->project_url_content }}</a></li>
+                    @endif
+
                 </ul>
             </div>
         </div>
@@ -82,8 +97,8 @@
                         @php($images = json_decode($singleCompanyTnsServiceItem->portfolio_images))
                         @foreach($images as $image)
                             <div class="col-lg-4 col-md-4 col-sm-6" style="padding: 2px 2px !important;">
-                                <a class="d-inline-block img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon mb-1 me-1" href="{{ asset('storage/company/all-company/tns/service/item/portfolio/' . $image) }}">
-                                    <img style="border-radius: 1% !important; height: 220px" class="img-fluid" src="{{ asset('storage/company/all-company/tns/service/item/portfolio/' . $image) }}" alt="{{ $singleCompanyTnsServiceItem->name }}">
+                                <a style="width: 100%" class="d-inline-block img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon mb-1 me-1" href="{{ asset('storage/company/all-company/tns/service/item/portfolio/' . $image) }}">
+                                    <img style="border-radius: 1% !important; height: 250px; width: 100% !important;" src="{{ asset('storage/company/all-company/tns/service/item/portfolio/' . $image) }}" alt="{{ $singleCompanyTnsServiceItem->name }}">
                                 </a>
                             </div>
                         @endforeach

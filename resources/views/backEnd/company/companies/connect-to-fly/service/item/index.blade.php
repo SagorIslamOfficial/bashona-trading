@@ -15,7 +15,7 @@
 
                 @include('backEnd.inc.error')
 
-                <table class="table">
+                <table class="table cell-border compact stripe" id="companies">
                     <thead class="">
                     <tr>
                         <th>Category</th>
@@ -39,15 +39,33 @@
                             <td>{{ $connectToFlyServiceItem->project_link }}</td>
                             <td>
                                 @php($images = json_decode($connectToFlyServiceItem->images))
-                                @foreach($images as $file)
-                                    <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/connect-to-fly/service/item/details/' . $file) }}" alt="{{ $connectToFlyServiceItem->name }}">
-                                @endforeach
+                                @if(!empty($images))
+                                    @foreach($images as $file)
+                                        <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/connect-to-fly/service/item/details/' . $file) }}" alt="{{ $connectToFlyServiceItem->name }}">
+                                    @endforeach
+                                <form class="text-center" action="{{ route('ctf-item-images.destroy', $connectToFlyServiceItem->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger mt-1">Delete</button>
+                                </form>
+                                @else
+                                    No Images found
+                                @endif
                             </td>
                             <td>
                                 @php($images = json_decode($connectToFlyServiceItem->portfolio_images))
-                                @foreach($images as $file)
-                                    <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/connect-to-fly/service/item/portfolio/' . $file) }}" alt="{{ $connectToFlyServiceItem->name }}">
-                                @endforeach
+                                @if(!empty($images))
+                                    @foreach($images as $file)
+                                        <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/connect-to-fly/service/item/portfolio/' . $file) }}" alt="{{ $connectToFlyServiceItem->name }}">
+                                    @endforeach
+                                <form class="text-center" action="{{ route('ctf-item-portfolio.destroy', $connectToFlyServiceItem->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger mt-1">Delete</button>
+                                </form>
+                                @else
+                                    No Images found
+                                @endif
                             </td>
                             <td>
                                 <a class="btn btn-success" href="{{ $connectToFlyServiceItem->editPath() }}"> EDIT </a>

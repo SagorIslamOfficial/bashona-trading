@@ -63,11 +63,11 @@ class ArtVentureAboutController extends Controller
             $slug = str_slug($request->title);
 
             //Make unique name for image
-            $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $imageName = $slug . '.' . $image->getClientOriginalExtension();
 
             //Checking image storage folder, if not available then create a folder
-            if (!Storage::disk('public')->exists('company/art-venture/about')) {
-                Storage::disk('public')->makeDirectory('company/art-venture/about');
+            if (!Storage::disk('public')->exists('company/all-company/art-venture/about')) {
+                Storage::disk('public')->makeDirectory('company/all-company/art-venture/about');
             }
 
             //Save image and resize image
@@ -138,16 +138,16 @@ class ArtVentureAboutController extends Controller
             $slug = str_slug($request->title);
 
             //Make unique name for image
-            $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+            $imageName = $slug . '.' . $image->getClientOriginalExtension();
 
             //Checking image storage folder, if not available then create a folder
-            if (!Storage::disk('public')->exists('company/art-venture/about')) {
-                Storage::disk('public')->makeDirectory('company/art-venture/about');
+            if (!Storage::disk('public')->exists('company/all-company/art-venture/about')) {
+                Storage::disk('public')->makeDirectory('company/all-company/art-venture/about');
             }
 
             //Delete old image from database
-            if (Storage::disk('public')->exists('company/art-venture/about/' . $updateArtVentureAbout->image)) {
-                Storage::disk('public')->delete('company/art-venture/about/' . $updateArtVentureAbout->image);
+            if (Storage::disk('public')->exists('company/all-company/art-venture/about/' . $updateArtVentureAbout->image)) {
+                Storage::disk('public')->delete('company/all-company/art-venture/about/' . $updateArtVentureAbout->image);
             }
 
             //Save image and resize image
@@ -175,8 +175,8 @@ class ArtVentureAboutController extends Controller
     {
         $destroyArtVentureAbout = ArtVentureAbout::findOrfail($id);
 
-        if (Storage::disk('public')->exists('company/art-venture/about/' . $destroyArtVentureAbout->image)) {
-            Storage::disk('public')->delete('company/art-venture/about/' . $destroyArtVentureAbout->image);
+        if (Storage::disk('public')->exists('company/all-company/art-venture/about/' . $destroyArtVentureAbout->image)) {
+            Storage::disk('public')->delete('company/all-company/art-venture/about/' . $destroyArtVentureAbout->image);
         }
 
         $destroyArtVentureAbout->delete();

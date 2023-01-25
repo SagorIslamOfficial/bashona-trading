@@ -15,7 +15,7 @@
 
                 @include('backEnd.inc.error')
 
-                <table class="table">
+                <table class="table" id="companies">
                     <thead class="">
                     <tr>
                         <th>Category</th>
@@ -39,15 +39,33 @@
                             <td>{{ $bdDigitalServiceItem->project_link }}</td>
                             <td>
                                 @php($images = json_decode($bdDigitalServiceItem->images))
-                                @foreach($images as $file)
-                                    <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/bd-digital/service/item/details/' . $file) }}" alt="{{ $bdDigitalServiceItem->name }}">
-                                @endforeach
+                                @if(!empty($images))
+                                    @foreach($images as $file)
+                                        <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/bd-digital/service/item/details/' . $file) }}" alt="{{ $bdDigitalServiceItem->name }}">
+                                    @endforeach
+                                    <form class="text-center" action="{{ route('bd-digital-item-images.destroy', $bdDigitalServiceItem->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger mt-1">Delete</button>
+                                    </form>
+                                @else
+                                    No Images found
+                                @endif
                             </td>
                             <td>
                                 @php($images = json_decode($bdDigitalServiceItem->portfolio_images))
-                                @foreach($images as $file)
-                                    <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/bd-digital/service/item/portfolio/' . $file) }}" alt="{{ $bdDigitalServiceItem->name }}">
-                                @endforeach
+                                @if(!empty($images))
+                                    @foreach($images as $file)
+                                        <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/bd-digital/service/item/portfolio/' . $file) }}" alt="{{ $bdDigitalServiceItem->name }}">
+                                    @endforeach
+                                    <form class="text-center" action="{{ route('bd-digital-item-portfolio.destroy', $bdDigitalServiceItem->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger mt-1">Delete</button>
+                                    </form>
+                                @else
+                                    No Images found
+                                @endif
                             </td>
                             <td>
                                 <a class="btn btn-success" href="{{ $bdDigitalServiceItem->editPath() }}"> EDIT </a>

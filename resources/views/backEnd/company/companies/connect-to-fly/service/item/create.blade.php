@@ -20,7 +20,7 @@
                         <label for="connect_to_fly_service_category_id" class="col-sm-2 col-form-label">Categories</label>
                         <div class="col-sm-8">
                             <select class="form-control form-select @error('connect_to_fly_service_category_id') is-invalid @enderror" aria-label="Default select example" name="connect_to_fly_service_category_id" id="connect_to_fly_service_category_id">
-                                <option selected>Select Category</option>
+                                <option selected disabled>Select Category</option>
                                 @foreach($getConnectToFlyServiceCategories as $connectToFlyServiceCategory)
                                     <option value="{{ $connectToFlyServiceCategory->id }}">{{ $connectToFlyServiceCategory->name }}</option>
                                 @endforeach

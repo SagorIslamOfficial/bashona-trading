@@ -20,7 +20,7 @@
                         <label for="art_venture_category_id" class="col-sm-2 col-form-label">Categories</label>
                         <div class="col-sm-8">
                             <select class="form-control form-select @error('art_venture_category_id') is-invalid @enderror" aria-label="Default select example" name="art_venture_category_id" id="art_venture_category_id">
-                                <option selected>Select Category</option>
+                                <option selected disabled>Select Category</option>
                                 @foreach($getArtVentureServiceCategories as $artVentureServiceCategory)
                                     <option value="{{ $artVentureServiceCategory->id }}">{{ $artVentureServiceCategory->name }}</option>
                                 @endforeach

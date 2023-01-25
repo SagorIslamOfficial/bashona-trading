@@ -27,14 +27,14 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3"><h6>Image</h6></div>
-                        <div class="col-sm-9"><h6>:<span style="padding-left: 2%"><img style="width: 150px; height: 90px;" src="{{ asset('storage/company/art-venture/service/item/' . $viewArtVentureServiceItem->image) }}" alt="{{ $viewArtVentureServiceItem->name }}"></span></h6></div>
+                        <div class="col-sm-9"><h6>:<span style="padding-left: 2%"><img style="width: 150px; height: 90px;" src="{{ asset('storage/company/all-company/art-venture/service/item/' . $viewArtVentureServiceItem->image) }}" alt="{{ $viewArtVentureServiceItem->name }}"></span></h6></div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3"><h6>Images</h6></div>
                         <div class="col-sm-9"><h6>:<span style="padding-left: 2%">
                                 @php($images = json_decode($viewArtVentureServiceItem->images))
                                 @foreach($images as $file)
-                                    <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/art-venture/service/item/details/' . $file) }}" alt="{{ $viewArtVentureServiceItem->name }}">
+                                    <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/all-company/art-venture/service/item/details/' . $file) }}" alt="{{ $viewArtVentureServiceItem->name }}">
                                 @endforeach
                             </h6>
                         </div>
@@ -96,7 +96,7 @@
                         <div class="col-sm-9"><h6>:<span style="padding-left: 2%">
                                 @php($images = json_decode($viewArtVentureServiceItem->portfolio_images))
                                     @foreach($images as $file)
-                                        <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/art-venture/service/item/portfolio/' . $file) }}" alt="{{ $viewArtVentureServiceItem->name }}">
+                                        <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $file) }}" alt="{{ $viewArtVentureServiceItem->name }}">
                                 @endforeach
                             </h6>
                         </div>

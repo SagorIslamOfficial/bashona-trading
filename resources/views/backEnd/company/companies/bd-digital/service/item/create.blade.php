@@ -20,7 +20,7 @@
                         <label for="bd_digital_service_category_id" class="col-sm-2 col-form-label">Categories</label>
                         <div class="col-sm-8">
                             <select class="form-control form-select @error('bd_digital_service_category_id') is-invalid @enderror" aria-label="Default select example" name="bd_digital_service_category_id" id="bd_digital_service_category_id">
-                                <option selected>Select Category</option>
+                                <option selected disabled>Select Category</option>
                                 @foreach($getBdDigitalServiceCategories as $bdDigitalServiceCategory)
                                     <option value="{{ $bdDigitalServiceCategory->id }}">{{ $bdDigitalServiceCategory->name }}</option>
                                 @endforeach

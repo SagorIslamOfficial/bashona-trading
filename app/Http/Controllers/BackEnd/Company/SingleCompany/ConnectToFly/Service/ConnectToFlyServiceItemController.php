@@ -51,25 +51,16 @@ class ConnectToFlyServiceItemController extends Controller
             'connect_to_fly_service_category_id' => 'required',
             'name' => 'required',
             'company' => 'required',
+
             'image' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:100',
             'images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
             'images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp',
+
             'project_heading' => 'required',
             'project_description' => 'required',
-            'project_details_heading' => 'required',
-            'project_client' => 'required',
-            'project_client_content' => 'required',
-            'project_date' => 'required',
-            'project_date_content' => 'required',
-            'project_skills' => 'required',
-            'project_skills_content' => 'required',
-            'project_url' => 'required',
-            'project_url_content' => 'required',
-            'project_link' => 'required',
             'portfolio_heading' => 'required',
+
             'portfolio_images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
             'portfolio_images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp'
         ]);
 
@@ -203,25 +194,16 @@ class ConnectToFlyServiceItemController extends Controller
             'connect_to_fly_service_category_id' => 'required',
             'name' => 'required',
             'company' => 'required',
+
             'image.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:100',
-            'images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
+//            'images' => 'required',
             'images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp',
+
             'project_heading' => 'required',
             'project_description' => 'required',
-            'project_details_heading' => 'required',
-            'project_client' => 'required',
-            'project_client_content' => 'required',
-            'project_date' => 'required',
-            'project_date_content' => 'required',
-            'project_skills' => 'required',
-            'project_skills_content' => 'required',
-            'project_url' => 'required',
-            'project_url_content' => 'required',
-            'project_link' => 'required',
             'portfolio_heading' => 'required',
-            'portfolio_images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
+
+//            'portfolio_images' => 'required',
             'portfolio_images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp'
         ]);
 
@@ -263,10 +245,10 @@ class ConnectToFlyServiceItemController extends Controller
         }
 
         $itemImages = $request->file('images');
-        $images = [];
+        $existingImages = json_decode($updateConnectToFlyServiceItem->images);
         if (isset($itemImages)) {
 
-            foreach ($request->file('images') as $file) {
+            foreach ($itemImages as $file) {
                 $slug = str_slug($request->name);
                 $itemImageName = $slug . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
@@ -274,21 +256,12 @@ class ConnectToFlyServiceItemController extends Controller
                     Storage::disk('public')->makeDirectory('company/all-company/connect-to-fly/service/item/details');
                 }
 
-                //Delete old multiple images
-                $getImages = json_decode($updateConnectToFlyServiceItem->images);
-                foreach ($getImages as $image) {
-                    if (Storage::disk('public')->exists('company/all-company/connect-to-fly/service/item/details/' . $image)) {
-                        Storage::disk('public')->delete('company/all-company/connect-to-fly/service/item/details/' . $image);
-                    }
-                }
-
                 $portfolioItemImage = Image::make($file)->resize(1115, 515)->stream();
                 Storage::disk('public')->put('company/all-company/connect-to-fly/service/item/details/' . $itemImageName, $portfolioItemImage);
 
-                $images[] = $itemImageName;
+                $existingImages[] = $itemImageName;
             }
-
-            $updateConnectToFlyServiceItem->images = json_encode($images);
+            $updateConnectToFlyServiceItem->images = json_encode($existingImages);
         }
 
         $updateConnectToFlyServiceItem->project_heading = $request->project_heading;
@@ -306,10 +279,10 @@ class ConnectToFlyServiceItemController extends Controller
         $updateConnectToFlyServiceItem->portfolio_heading = $request->portfolio_heading;
 
         $itemImages = $request->file('portfolio_images');
-        $images = [];
+        $existingImages = json_decode($updateConnectToFlyServiceItem->portfolio_images);
         if (isset($itemImages)) {
 
-            foreach ($request->file('portfolio_images') as $file) {
+            foreach ($itemImages as $file) {
                 $slug = str_slug($request->name);
                 $itemImageName = $slug . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
@@ -317,25 +290,17 @@ class ConnectToFlyServiceItemController extends Controller
                     Storage::disk('public')->makeDirectory('company/all-company/connect-to-fly/service/item/portfolio');
                 }
 
-                //Delete old multiple images
-                $getImages = json_decode($updateConnectToFlyServiceItem->portfolio_images);
-                foreach ($getImages as $image) {
-                    if (Storage::disk('public')->exists('company/all-company/connect-to-fly/service/item/portfolio/' . $image)) {
-                        Storage::disk('public')->delete('company/all-company/connect-to-fly/service/item/portfolio/' . $image);
-                    }
-                }
-
                 $portfolioItemImage = Image::make($file)->stream();
                 Storage::disk('public')->put('company/all-company/connect-to-fly/service/item/portfolio/' . $itemImageName, $portfolioItemImage);
 
-                $images[] = $itemImageName;
+                $existingImages[] = $itemImageName;
             }
-            $updateConnectToFlyServiceItem->portfolio_images = json_encode($images);
+            $updateConnectToFlyServiceItem->portfolio_images = json_encode($existingImages);
         }
 
         $updateConnectToFlyServiceItem->save();
 
-        return redirect()->route('ctf-service-item.index')->with('success', 'Connect To Fly Service Item Saved Successfully');
+        return redirect()->route('ctf-service-item.index')->with('success', 'Connect To Fly Service Item Updated Successfully');
     }
 
     /**
@@ -370,4 +335,29 @@ class ConnectToFlyServiceItemController extends Controller
 
         return redirect()->route('ctf-service-item.index')->with('success', 'Connect To Fly Service Item Deleted successfully');
     }
+
+    public function deleteConnectToFlyImages($id)
+    {
+        $connectToFlyServiceItem = ConnectToFlyServiceItem::findOrFail($id);
+        $images = json_decode($connectToFlyServiceItem->images);
+        foreach($images as $file) {
+            Storage::delete('public/company/all-company/connect-to-fly/service/item/details/' . $file);
+        }
+        $connectToFlyServiceItem->images = "[]";
+        $connectToFlyServiceItem->save();
+        return redirect()->back()->with('success', 'Images deleted successfully!');
+    }
+
+    public function deleteConnectToFlyPortfolioImage($id)
+    {
+        $connectToFlyServiceItem = ConnectToFlyServiceItem::findOrFail($id);
+        $images = json_decode($connectToFlyServiceItem->portfolio_images);
+        foreach($images as $file) {
+            Storage::delete('public/company/all-company/connect-to-fly/service/item/portfolio/' . $file);
+        }
+        $connectToFlyServiceItem->portfolio_images = "[]";
+        $connectToFlyServiceItem->save();
+        return redirect()->back()->with('success', 'Portfolio images deleted successfully!');
+    }
+
 }

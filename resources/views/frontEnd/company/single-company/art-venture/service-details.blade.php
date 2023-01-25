@@ -64,12 +64,25 @@
                 <p class="text-justify">{!! nl2br(e($singleCompanyArtVentureServiceItem->project_description)) !!}</p>
             </div>
             <div class="col-md-5">
-                <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyArtVentureServiceItem->project_details_heading }}</strong></h2>
+                @if($singleCompanyArtVentureServiceItem->project_details_heading == !null)
+                    <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyArtVentureServiceItem->project_details_heading }}</strong></h2>
+                @endif
                 <ul class="list list-icons list-primary list-borders text-2">
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_client }}: </strong> {{ $singleCompanyArtVentureServiceItem->project_client_content }}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_date }}: </strong>{{ $singleCompanyArtVentureServiceItem->project_date_content }}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_skills }}: </strong> {{ $singleCompanyArtVentureServiceItem->project_skills_content }}</li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_url }}: </strong> <a href="{{ $singleCompanyArtVentureServiceItem->project_link }}" target="_blank" class="text-dark">{{ $singleCompanyArtVentureServiceItem->project_url_content }}</a></li>
+                    @if($singleCompanyArtVentureServiceItem->project_client && $singleCompanyArtVentureServiceItem->project_client_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_client }}: </strong> {{ $singleCompanyArtVentureServiceItem->project_client_content }}</li>
+                    @endif
+
+                    @if($singleCompanyArtVentureServiceItem->project_date && $singleCompanyArtVentureServiceItem->project_date_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_date }}: </strong>{{ $singleCompanyArtVentureServiceItem->project_date_content }}</li>
+                    @endif
+
+                    @if($singleCompanyArtVentureServiceItem->project_skills && $singleCompanyArtVentureServiceItem->project_skills_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_skills }}: </strong> {{ $singleCompanyArtVentureServiceItem->project_skills_content }}</li>
+                    @endif
+
+                    @if($singleCompanyArtVentureServiceItem->project_url && $singleCompanyArtVentureServiceItem->project_link && $singleCompanyArtVentureServiceItem->project_url_content == !null)
+                        <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">{{ $singleCompanyArtVentureServiceItem->project_url }}: </strong> <a href="{{ $singleCompanyArtVentureServiceItem->project_link }}" target="_blank" class="text-dark">{{ $singleCompanyArtVentureServiceItem->project_url_content }}</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -83,8 +96,8 @@
                         @php($images = json_decode($singleCompanyArtVentureServiceItem->portfolio_images))
                         @foreach($images as $image)
                             <div class="col-lg-4 col-md-4 col-sm-6" style="padding: 2px 2px !important;">
-                                <a class="d-inline-block img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon mb-1 me-1" href="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $image) }}">
-                                    <img style="border-radius: 1% !important; height: 220px" class="img-fluid" src="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $image) }}" alt="{{ $singleCompanyArtVentureServiceItem->name }}">
+                                <a style="width: 100%" class="d-inline-block img-thumbnail img-thumbnail-no-borders img-thumbnail-hover-icon mb-1 me-1" href="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $image) }}">
+                                    <img style="border-radius: 1% !important; height: 250px; width: 100% !important;" src="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $image) }}" alt="{{ $singleCompanyArtVentureServiceItem->name }}">
                                 </a>
                             </div>
                         @endforeach

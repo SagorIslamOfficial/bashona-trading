@@ -96,7 +96,7 @@
                         <div class="col-sm-9"><h6>:<span style="padding-left: 2%">
                                 @php($images = json_decode($viewTnsServiceItem->portfolio_images))
                                     @foreach($images as $file)
-                                        <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/tns/service/item/portfolio/' . $file) }}" alt="{{ $viewTnsServiceItem->name }}">
+                                        <img style="width: 90px; height: 60px;" src="{{ asset('storage/company/all-company/tns/service/item/portfolio/' . $file) }}" alt="{{ $viewTnsServiceItem->name }}">
                                 @endforeach
                             </h6>
                         </div>

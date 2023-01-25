@@ -11,7 +11,9 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
@@ -51,25 +53,16 @@ class ArtVentureItemController extends Controller
             'art_venture_category_id' => 'required',
             'name' => 'required',
             'company' => 'required',
+
             'image' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:100',
             'images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
             'images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp',
+
             'project_heading' => 'required',
             'project_description' => 'required',
-            'project_details_heading' => 'required',
-            'project_client' => 'required',
-            'project_client_content' => 'required',
-            'project_date' => 'required',
-            'project_date_content' => 'required',
-            'project_skills' => 'required',
-            'project_skills_content' => 'required',
-            'project_url' => 'required',
-            'project_url_content' => 'required',
-            'project_link' => 'required',
             'portfolio_heading' => 'required',
+
             'portfolio_images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
             'portfolio_images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp'
         ]);
 
@@ -203,25 +196,16 @@ class ArtVentureItemController extends Controller
             'art_venture_category_id' => 'required',
             'name' => 'required',
             'company' => 'required',
+
             'image.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:100',
-            'images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
+//            'images' => 'required',
             'images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp',
+
             'project_heading' => 'required',
             'project_description' => 'required',
-            'project_details_heading' => 'required',
-            'project_client' => 'required',
-            'project_client_content' => 'required',
-            'project_date' => 'required',
-            'project_date_content' => 'required',
-            'project_skills' => 'required',
-            'project_skills_content' => 'required',
-            'project_url' => 'required',
-            'project_url_content' => 'required',
-            'project_link' => 'required',
             'portfolio_heading' => 'required',
-            'portfolio_images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
+
+//            'portfolio_images' => 'required',
             'portfolio_images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp'
         ]);
 
@@ -263,10 +247,10 @@ class ArtVentureItemController extends Controller
         }
 
         $itemImages = $request->file('images');
-        $images = [];
+        $existingImages = json_decode($updateArtVentureServiceItem->images);
         if (isset($itemImages)) {
 
-            foreach ($request->file('images') as $file) {
+            foreach ($itemImages as $file) {
                 $slug = str_slug($request->name);
                 $itemImageName = $slug . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
@@ -274,21 +258,13 @@ class ArtVentureItemController extends Controller
                     Storage::disk('public')->makeDirectory('company/all-company/art-venture/service/item/details');
                 }
 
-                //Delete old multiple images
-                $getImages = json_decode($updateArtVentureServiceItem->images);
-                foreach ($getImages as $image) {
-                    if (Storage::disk('public')->exists('company/all-company/art-venture/service/item/details/' . $image)) {
-                        Storage::disk('public')->delete('company/all-company/art-venture/service/item/details/' . $image);
-                    }
-                }
-
                 $portfolioItemImage = Image::make($file)->resize(1115, 515)->stream();
                 Storage::disk('public')->put('company/all-company/art-venture/service/item/details/' . $itemImageName, $portfolioItemImage);
 
-                $images[] = $itemImageName;
+                $existingImages[] = $itemImageName;
             }
+            $updateArtVentureServiceItem->images = json_encode($existingImages);
         }
-        $updateArtVentureServiceItem->images = json_encode($images);
 
         $updateArtVentureServiceItem->project_heading = $request->project_heading;
         $updateArtVentureServiceItem->project_description = $request->project_description;
@@ -305,10 +281,10 @@ class ArtVentureItemController extends Controller
         $updateArtVentureServiceItem->portfolio_heading = $request->portfolio_heading;
 
         $itemImages = $request->file('portfolio_images');
-        $images = [];
+        $existingImages = json_decode($updateArtVentureServiceItem->portfolio_images);
         if (isset($itemImages)) {
 
-            foreach ($request->file('portfolio_images') as $file) {
+            foreach ($itemImages as $file) {
                 $slug = str_slug($request->name);
                 $itemImageName = $slug . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
@@ -316,25 +292,16 @@ class ArtVentureItemController extends Controller
                     Storage::disk('public')->makeDirectory('company/all-company/art-venture/service/item/portfolio');
                 }
 
-                //Delete old multiple images
-                $getImages = json_decode($updateArtVentureServiceItem->portfolio_images);
-                foreach ($getImages as $image) {
-                    if (Storage::disk('public')->exists('company/all-company/art-venture/service/item/portfolio/' . $image)) {
-                        Storage::disk('public')->delete('company/all-company/art-venture/service/item/portfolio/' . $image);
-                    }
-                }
-
                 $portfolioItemImage = Image::make($file)->stream();
                 Storage::disk('public')->put('company/all-company/art-venture/service/item/portfolio/' . $itemImageName, $portfolioItemImage);
 
-                $images[] = $itemImageName;
+                $existingImages[] = $itemImageName;
             }
-            $updateArtVentureServiceItem->portfolio_images = json_encode($images);
+            $updateArtVentureServiceItem->portfolio_images = json_encode($existingImages);
         }
 
         $updateArtVentureServiceItem->save();
-
-        return redirect()->route('art-venture-item.index')->with('success', 'Art Venture Service Item Saved Successfully');
+        return redirect()->route('art-venture-item.index')->with('success', 'Art Venture Service Item Updated Successfully');
     }
 
     /**
@@ -345,7 +312,7 @@ class ArtVentureItemController extends Controller
      */
     public function destroy($id)
     {
-        $destroyArtVentureServiceItem = ArtVentureItem::findOrfail($id);
+        $destroyArtVentureServiceItem = ArtVentureItem::findOrFail($id);
 
         if (Storage::disk('public')->exists('company/all-company/art-venture/service/item/' . $destroyArtVentureServiceItem->image)) {
             Storage::disk('public')->delete('company/all-company/art-venture/service/item/' . $destroyArtVentureServiceItem->image);
@@ -369,4 +336,29 @@ class ArtVentureItemController extends Controller
 
         return redirect()->route('art-venture-item.index')->with('success', 'Art Venture Service Item Deleted successfully');
     }
+
+    public function deleteImages($id)
+    {
+        $artVentureServiceItem = ArtVentureItem::findOrFail($id);
+        $images = json_decode($artVentureServiceItem->images);
+        foreach($images as $file) {
+            Storage::delete('public/company/all-company/art-venture/service/item/details/' . $file);
+        }
+        $artVentureServiceItem->images = "[]";
+        $artVentureServiceItem->save();
+        return redirect()->back()->with('success', 'Images deleted successfully!');
+    }
+
+    public function deletePortfolioImage($id)
+    {
+        $artVentureServiceItem = ArtVentureItem::findOrFail($id);
+        $images = json_decode($artVentureServiceItem->portfolio_images);
+        foreach($images as $file) {
+            Storage::delete('public/company/all-company/art-venture/service/item/portfolio/' . $file);
+        }
+        $artVentureServiceItem->portfolio_images = "[]";
+        $artVentureServiceItem->save();
+        return redirect()->back()->with('success', 'Portfolio images deleted successfully!');
+    }
+
 }

@@ -20,7 +20,7 @@
                         <label for="tns_service_category_id" class="col-sm-2 col-form-label">Categories</label>
                         <div class="col-sm-8">
                             <select class="form-control form-select @error('tns_service_category_id') is-invalid @enderror" aria-label="Default select example" name="tns_service_category_id" id="tns_service_category_id">
-                                <option selected>Select Category</option>
+                                <option selected disabled>Select Category</option>
                                 @foreach($getTnsServiceCategories as $tnsServiceCategory)
                                     <option value="{{ $tnsServiceCategory->id }}">{{ $tnsServiceCategory->name }}</option>
                                 @endforeach

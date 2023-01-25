@@ -15,6 +15,9 @@ $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
 
+//I changed .env file name to another name for security purpose.
+$app->loadEnvironmentFrom('.jodi.jai.taile.sob.sesh.mindIt');
+
 /*
 |--------------------------------------------------------------------------
 | Bind Important Interfaces

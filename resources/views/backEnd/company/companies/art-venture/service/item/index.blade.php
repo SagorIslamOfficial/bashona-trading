@@ -15,7 +15,7 @@
 
                 @include('backEnd.inc.error')
 
-                <table class="table">
+                <table class="table" id="companies">
                     <thead class="">
                     <tr>
                         <th>Category</th>
@@ -39,15 +39,33 @@
                             <td>{{ $artVentureServiceItem->project_link }}</td>
                             <td>
                                 @php($images = json_decode($artVentureServiceItem->images))
-                                @foreach($images as $file)
-                                    <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/art-venture/service/item/details/' . $file) }}" alt="{{ $artVentureServiceItem->name }}">
-                                @endforeach
+                                @if(!empty($images))
+                                    @foreach($images as $file)
+                                        <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/art-venture/service/item/details/' . $file) }}" alt="{{ $artVentureServiceItem->name }}">
+                                    @endforeach
+                                    <form class="text-center" action="{{ route('art-venture-item-images.destroy', $artVentureServiceItem->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger mt-1">Delete</button>
+                                    </form>
+                                @else
+                                    No Images found
+                                @endif
                             </td>
                             <td>
                                 @php($images = json_decode($artVentureServiceItem->portfolio_images))
-                                @foreach($images as $file)
-                                    <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $file) }}" alt="{{ $artVentureServiceItem->name }}">
-                                @endforeach
+                                @if(!empty($images))
+                                    @foreach($images as $file)
+                                        <img style="width: 50px; height: 35px;" src="{{ asset('storage/company/all-company/art-venture/service/item/portfolio/' . $file) }}" alt="{{ $artVentureServiceItem->name }}">
+                                    @endforeach
+                                    <form class="text-center" action="{{ route('art-venture-item-portfolio', $artVentureServiceItem->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger mt-1">Delete</button>
+                                    </form>
+                                @else
+                                    No Images found
+                                @endif
                             </td>
                             <td>
                                 <a class="btn btn-success" href="{{ $artVentureServiceItem->editPath() }}"> EDIT </a>
@@ -55,7 +73,8 @@
                                 <form class="d-inline" action="{{ route('art-venture-item.destroy', $artVentureServiceItem->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">DELETE</button>
+{{--                                    <button class="btn btn-danger" type="submit">DELETE</button>--}}
+                                    <button onclick="return confirm('Are you sure you want to delete this one?')" class="btn btn-danger">Delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -66,3 +85,7 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+
+@endpush

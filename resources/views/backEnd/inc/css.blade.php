@@ -16,9 +16,14 @@
 
     <meta content="#ffffff" name="msapplication-TileColor"/>
     <meta content="#ffffff" name="theme-color"/>
+
     <!-- Vendors styles-->
     <link href="{{ asset('backEnd/vendors/simplebar/css/simplebar.css') }}" rel="stylesheet">
     <link href="{{ asset('backEnd/css/vendors/simplebar.css') }}" rel="stylesheet">
+
+    <!-- Datatable CSS install -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
     <!-- Main styles for this application-->
     <link href="{{ asset('backEnd/css/style.css') }}" rel="stylesheet">
 </head>

@@ -51,25 +51,16 @@ class BdDigitalServiceItemController extends Controller
             'bd_digital_service_category_id' => 'required',
             'name' => 'required',
             'company' => 'required',
+
             'image' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:100',
             'images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
             'images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp',
+
             'project_heading' => 'required',
             'project_description' => 'required',
-            'project_details_heading' => 'required',
-            'project_client' => 'required',
-            'project_client_content' => 'required',
-            'project_date' => 'required',
-            'project_date_content' => 'required',
-            'project_skills' => 'required',
-            'project_skills_content' => 'required',
-            'project_url' => 'required',
-            'project_url_content' => 'required',
-            'project_link' => 'required',
             'portfolio_heading' => 'required',
+
             'portfolio_images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
             'portfolio_images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp'
         ]);
 
@@ -203,25 +194,16 @@ class BdDigitalServiceItemController extends Controller
             'bd_digital_service_category_id' => 'required',
             'name' => 'required',
             'company' => 'required',
+
             'image.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:100',
-            'images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
+//            'images' => 'required',
             'images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp',
+
             'project_heading' => 'required',
             'project_description' => 'required',
-            'project_details_heading' => 'required',
-            'project_client' => 'required',
-            'project_client_content' => 'required',
-            'project_date' => 'required',
-            'project_date_content' => 'required',
-            'project_skills' => 'required',
-            'project_skills_content' => 'required',
-            'project_url' => 'required',
-            'project_url_content' => 'required',
-            'project_link' => 'required',
             'portfolio_heading' => 'required',
-            'portfolio_images' => 'required',
-            //This below extra like of code needed for validate multiple files or images. Except this line of code will show ("images" field must be a image)
+
+//            'portfolio_images' => 'required',
             'portfolio_images.*' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp'
         ]);
 
@@ -263,10 +245,10 @@ class BdDigitalServiceItemController extends Controller
         }
 
         $itemImages = $request->file('images');
-        $images = [];
+        $existingImages = json_decode($updateBdDigitalServiceItem->images);
         if (isset($itemImages)) {
 
-            foreach ($request->file('images') as $file) {
+            foreach ($itemImages as $file) {
                 $slug = str_slug($request->name);
                 $itemImageName = $slug . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
@@ -274,21 +256,13 @@ class BdDigitalServiceItemController extends Controller
                     Storage::disk('public')->makeDirectory('company/all-company/bd-digital/service/item/details');
                 }
 
-                //Delete old multiple images
-                $getImages = json_decode($updateBdDigitalServiceItem->images);
-                foreach ($getImages as $image) {
-                    if (Storage::disk('public')->exists('company/all-company/bd-digital/service/item/details/' . $image)) {
-                        Storage::disk('public')->delete('company/all-company/bd-digital/service/item/details/' . $image);
-                    }
-                }
-
                 $portfolioItemImage = Image::make($file)->resize(1115, 515)->stream();
                 Storage::disk('public')->put('company/all-company/bd-digital/service/item/details/' . $itemImageName, $portfolioItemImage);
 
-                $images[] = $itemImageName;
+                $existingImages[] = $itemImageName;
             }
+            $updateBdDigitalServiceItem->images = json_encode($existingImages);
         }
-        $updateBdDigitalServiceItem->images = json_encode($images);
 
         $updateBdDigitalServiceItem->project_heading = $request->project_heading;
         $updateBdDigitalServiceItem->project_description = $request->project_description;
@@ -305,10 +279,10 @@ class BdDigitalServiceItemController extends Controller
         $updateBdDigitalServiceItem->portfolio_heading = $request->portfolio_heading;
 
         $itemImages = $request->file('portfolio_images');
-        $images = [];
+        $existingImages = json_decode($updateBdDigitalServiceItem->portfolio_images);
         if (isset($itemImages)) {
 
-            foreach ($request->file('portfolio_images') as $file) {
+            foreach ($itemImages as $file) {
                 $slug = str_slug($request->name);
                 $itemImageName = $slug . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
@@ -316,20 +290,12 @@ class BdDigitalServiceItemController extends Controller
                     Storage::disk('public')->makeDirectory('company/all-company/bd-digital/service/item/portfolio');
                 }
 
-                //Delete old multiple images
-                $getImages = json_decode($updateBdDigitalServiceItem->portfolio_images);
-                foreach ($getImages as $image) {
-                    if (Storage::disk('public')->exists('company/all-company/bd-digital/service/item/portfolio/' . $image)) {
-                        Storage::disk('public')->delete('company/all-company/bd-digital/service/item/portfolio/' . $image);
-                    }
-                }
-
                 $portfolioItemImage = Image::make($file)->stream();
                 Storage::disk('public')->put('company/all-company/bd-digital/service/item/portfolio/' . $itemImageName, $portfolioItemImage);
 
-                $images[] = $itemImageName;
+                $existingImages[] = $itemImageName;
             }
-            $updateBdDigitalServiceItem->portfolio_images = json_encode($images);
+            $updateBdDigitalServiceItem->portfolio_images = json_encode($existingImages);
         }
 
         $updateBdDigitalServiceItem->save();
@@ -368,5 +334,29 @@ class BdDigitalServiceItemController extends Controller
         $destroyBdDigitalServiceItem->delete();
 
         return redirect()->route('bd-digital-service-item.index')->with('success', 'BD Digital Service Item Deleted successfully');
+    }
+
+    public function deleteBdDigitalImages($id)
+    {
+        $bdDigitalServiceItem = BdDigitalServiceItem::findOrFail($id);
+        $images = json_decode($bdDigitalServiceItem->images);
+        foreach($images as $file) {
+            Storage::delete('public/company/all-company/bd-digital/service/item/details/' . $file);
+        }
+        $bdDigitalServiceItem->images = "[]";
+        $bdDigitalServiceItem->save();
+        return redirect()->back()->with('success', 'Images deleted successfully!');
+    }
+
+    public function deleteBdDigitalPortfolioImage($id)
+    {
+        $bdDigitalServiceItem = BdDigitalServiceItem::findOrFail($id);
+        $images = json_decode($bdDigitalServiceItem->portfolio_images);
+        foreach($images as $file) {
+            Storage::delete('public/company/all-company/bd-digital/service/item/portfolio/' . $file);
+        }
+        $bdDigitalServiceItem->portfolio_images = "[]";
+        $bdDigitalServiceItem->save();
+        return redirect()->back()->with('success', 'Portfolio images deleted successfully!');
     }
 }

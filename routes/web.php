@@ -89,7 +89,6 @@ Route::get('/gallery', [FrontEndController::class, 'gallery'])->name('front-end-
 Route::get('/contact', [FrontEndController::class, 'contact'])->name('front-end-contact');
 Route::post('/contact', [EmailContactController::class, 'store'])->name('front-end-contact-email');
 
-
 //BackEnd Controllers
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [BackendController::class, 'dashboard'])->name('admin');
@@ -107,24 +106,40 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::group(['prefix' => 'art-venture'], function (){
             Route::resource('art-venture-about', ArtVentureAboutController::class);
             Route::resource('service/art-venture-category', ArtVentureCategoryController::class);
+
+            Route::delete('service/art-venture-item-images/{id}', [ArtVentureItemController::class, 'deleteImages'])->name('art-venture-item-images.destroy');
+            Route::delete('service/art-venture-item-portfolio/{id}', [ArtVentureItemController::class, 'deletePortfolioImage'])->name('art-venture-item-portfolio');
+
             Route::resource('service/art-venture-item', ArtVentureItemController::class);
             Route::resource('art-venture-team', ArtVentureTeamController::class);
         });
         Route::group(['prefix' => 'tns'], function (){
             Route::resource('tns-about', TnsAboutController::class);
             Route::resource('service/tns-category', TnsServiceCategoryController::class);
+
+            Route::delete('service/tns-item-images/{id}', [TnsServiceItemController::class, 'deleteTnsImages'])->name('tns-item-images.destroy');
+            Route::delete('service/tns-item-portfolio/{id}', [TnsServiceItemController::class, 'deleteTnsPortfolioImage'])->name('tns-item-portfolio.destroy');
+
             Route::resource('service/tns-item', TnsServiceItemController::class);
             Route::resource('tns-team', TnsTeamController::class);
         });
         Route::group(['prefix' => 'bd-digital'], function (){
             Route::resource('bd-digital-about', BdDigitalAboutController::class);
             Route::resource('service/bd-digital-service-category', BdDigitalServiceCategoryController::class);
+
+            Route::delete('service/bd-digital-item-images/{id}', [BdDigitalServiceItemController::class, 'deleteBdDigitalImages'])->name('bd-digital-item-images.destroy');
+            Route::delete('service/bd-digital-item-portfolio/{id}', [BdDigitalServiceItemController::class, 'deleteBdDigitalPortfolioImage'])->name('bd-digital-item-portfolio.destroy');
+
             Route::resource('service/bd-digital-service-item', BdDigitalServiceItemController::class);
             Route::resource('bd-digital-team', BdDigitalTeamController::class);
         });
         Route::group(['prefix' => 'connect-to-fly'], function (){
             Route::resource('ctf-about', ConnectToFlyAboutController::class);
             Route::resource('service/ctf-service-category', ConnectToFlyServiceCategoryController::class);
+
+            Route::delete('service/ctf-item-images/{id}', [ConnectToFlyServiceItemController::class, 'deleteConnectToFlyImages'])->name('ctf-item-images.destroy');
+            Route::delete('service/ctf-item-portfolio/{id}', [ConnectToFlyServiceItemController::class, 'deleteConnectToFlyPortfolioImage'])->name('ctf-item-portfolio.destroy');
+
             Route::resource('service/ctf-service-item', ConnectToFlyServiceItemController::class);
             Route::resource('ctf-team', ConnectToFlyTeamController::class);
         });
