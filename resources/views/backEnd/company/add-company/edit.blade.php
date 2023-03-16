@@ -30,9 +30,9 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="text">Description</label>
+                        <label class="col-sm-2 col-form-label" for="singleCompanyDescription">Description</label>
                         <div class="col-sm-8">
-                            <textarea name="text" placeholder="Update your Add Company Description" rows="5" class="form-control @error('text') is-invalid @enderror" id="text">{{ $editAddCompany->text }}</textarea>
+                            <textarea name="text" placeholder="Update your Add Company Description" rows="5" class="form-control @error('text') is-invalid @enderror" id="singleCompanyDescription">{{ $editAddCompany->text }}</textarea>
                             @error('text')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

@@ -10,212 +10,148 @@
             </a>
         </h5>
         <div class="tab-content rounded-bottom">
+
             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-824">
-                <!-- Contact form start -->
-                <form method="POST" action="{{ route('about-team.update', $editAboutUsTeam->id) }}" enctype="multipart/form-data">
+                <form action="{{ route('about-team.update', $editAboutUsTeam->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name1">Name 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightName">Right Side Name</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('name1') is-invalid @enderror" name="name1" id="name1" value="{{ $editAboutUsTeam->name1 }}" type="text" placeholder="Update your About Us Team Name1" />
-                            @error('name1')
+                            <input class="form-control @error('rightName') is-invalid @enderror" name="rightName" id="rightName" value="{{ $editAboutUsTeam->rightName }}" type="text" placeholder="Right Side About Us Team Name"/>
+                            @error('rightName')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="position1">Position 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightPosition">Right Side Position</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('position1') is-invalid @enderror" name="position1" id="position1" value="{{ $editAboutUsTeam->position1 }}" type="text" placeholder="Update your About Us Team Position1" />
-                            @error('position1')
+                            <input class="form-control @error('rightPosition') is-invalid @enderror" name="rightPosition" id="rightPosition" value="{{ $editAboutUsTeam->rightPosition }}" type="text" placeholder="Right Side About Us Team Position"/>
+                            @error('rightPosition')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="description1">Description 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightMessage">Right Side Message</label>
                         <div class="col-sm-8">
-                            <textarea name="description1" placeholder="Update your About Us Team Description1 here" rows="5" class="form-control @error('description1') is-invalid @enderror" id="description1">{{ $editAboutUsTeam->description1 }}</textarea>
-                            @error('description1')
+                            <textarea name="rightMessage" placeholder="Right Side About Us Team Message here" class="form-control @error('rightMessage') is-invalid @enderror" id="rightMessage">{{ $editAboutUsTeam->rightMessage }}</textarea>
+                            @error('rightMessage')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="phone1">Phone 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightPhone">Right Side Phone</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('phone1') is-invalid @enderror" name="phone1" id="phone1" value="{{ $editAboutUsTeam->phone1 }}" type="text" placeholder="Update your About Us Team  Phone1" />
-                            @error('phone1')
+                            <input class="form-control @error('rightPhone') is-invalid @enderror" name="rightPhone" id="rightPhone" value="{{ $editAboutUsTeam->rightPhone }}" type="text" placeholder="Right Side About Us Team  Phone" />
+                            @error('rightPhone')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="email1">Email 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightEmail">Right Side Email</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('email1') is-invalid @enderror" name="email1" id="email1" value="{{ $editAboutUsTeam->email1 }}" type="text" placeholder="Update your About Us Team  Email1" />
-                            @error('email1')
+                            <input class="form-control @error('rightEmail') is-invalid @enderror" name="rightEmail" id="rightEmail" value="{{ $editAboutUsTeam->rightEmail }}" type="text" placeholder="Right Side About Us Team  Email" />
+                            @error('rightEmail')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="image1">Image 1 (w-450, h-450)</label>
+                        <label class="col-sm-2 col-form-label" for="rightImage">Right Side Image</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('image1') is-invalid @enderror" name="image1" id="image" type="file" />
-                            <img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $editAboutUsTeam->image1) }}" alt="{{ $editAboutUsTeam->image1 }}">
-                            @error('image1')
+                            <input class="form-control @error('rightImage') is-invalid @enderror" name="rightImage" id="rightImage" type="file" />
+                            @if($editAboutUsTeam->rightImage !== null)
+                                <img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $editAboutUsTeam->rightImage) }}" alt="{{ $editAboutUsTeam->rightName }}">
+                            @endif
+                            @error('rightImage')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name2">Name 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('name2') is-invalid @enderror" name="name2" id="name2" value="{{ $editAboutUsTeam->name2 }}" type="text" placeholder="Update your About Us Team Name 2" />
-                            @error('name2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="position2">Position 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('position2') is-invalid @enderror" name="position2" id="position2" value="{{ $editAboutUsTeam->position2 }}" type="text" placeholder="Update your About Us Team Position 2" />
-                            @error('position2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="description2">Description 2</label>
-                        <div class="col-sm-8">
-                            <textarea name="description2" placeholder="Update your About Us Team Description 2 here" rows="5" class="form-control @error('description2') is-invalid @enderror" id="description2">{{ $editAboutUsTeam->description2 }}</textarea>
-                            @error('description2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="phone2">Phone 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('phone2') is-invalid @enderror" name="phone2" id="phone2" value="{{ $editAboutUsTeam->phone2 }}" type="text" placeholder="Update your About Us Team Phone 2" />
-                            @error('phone2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="email2"> Email 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('email2') is-invalid @enderror" name="email2" id="email2" value="{{ $editAboutUsTeam->email2 }}" type="text" placeholder="Update your About Us Team Email 2" />
-                            @error('email2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="image2">Image 2 (w-450, h-450)</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('image2') is-invalid @enderror" name="image2" id="image2" type="file" />
-                            <img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $editAboutUsTeam->image2) }}" alt="{{ $editAboutUsTeam->image2 }}">
-                            @error('image2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
 
+
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name3">Name 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftName">Left Side Name</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('name3') is-invalid @enderror" name="name3" id="name3" value="{{ $editAboutUsTeam->name3 }}" type="text" placeholder="Update your About Us Team Name 3" />
-                            @error('name3')
+                            <input class="form-control @error('leftName') is-invalid @enderror" name="leftName" id="leftName" value="{{ $editAboutUsTeam->leftName }}" type="text" placeholder="Left Side About Us Team Name"/>
+                            @error('leftName')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="position3">Position 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftPosition">Left Side Position</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('position3') is-invalid @enderror" name="position3" id="position3" value="{{ $editAboutUsTeam->position3 }}" type="text" placeholder="Update your About Us Team Position 3" />
-                            @error('position3')
+                            <input class="form-control @error('leftPosition') is-invalid @enderror" name="leftPosition" id="leftPosition" value="{{ $editAboutUsTeam->leftPosition }}" type="text" placeholder="Left Side About Us Team Position"/>
+                            @error('leftPosition')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="description3">Description 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftMessage">Left Side Message</label>
                         <div class="col-sm-8">
-                            <textarea name="description3" placeholder="Update your About Us Team Description 3 here" rows="5" class="form-control @error('description3') is-invalid @enderror" id="description3">{{ $editAboutUsTeam->description3 }}</textarea>
-                            @error('description3')
+                            <textarea name="leftMessage" placeholder="Left Side About Us Team Message here" class="form-control @error('leftMessage') is-invalid @enderror" id="leftMessage">{{ $editAboutUsTeam->leftMessage }}</textarea>
+                            @error('leftMessage')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="phone3">Phone 2</label>
+                        <label class="col-sm-2 col-form-label" for="leftPhone">Left Side Phone</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('phone3') is-invalid @enderror" name="phone3" id="phone3" value="{{ $editAboutUsTeam->phone3 }}" type="text" placeholder="Update your About Us Team Phone 3" />
-                            @error('phone3')
+                            <input class="form-control @error('leftPhone') is-invalid @enderror" name="leftPhone" id="leftPhone" value="{{ $editAboutUsTeam->leftPhone }}" type="text" placeholder="Left Side About Us Team  Phone" />
+                            @error('leftPhone')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="email3"> Email 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftEmail">Left Side Email</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('email3') is-invalid @enderror" name="email3" id="email2" value="{{ $editAboutUsTeam->email3 }}" type="text" placeholder="Update your About Us Team Email 3" />
-                            @error('email3')
+                            <input class="form-control @error('leftEmail') is-invalid @enderror" name="leftEmail" id="leftEmail" value="{{ $editAboutUsTeam->leftEmail }}" type="text" placeholder="Left Side About Us Team  Email" />
+                            @error('leftEmail')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="image3">Image 3 (w-450, h-450)</label>
+                        <label class="col-sm-2 col-form-label" for="leftImage">Left Side Image</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('image3') is-invalid @enderror" name="image3" id="image3" type="file" />
-                            <img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $editAboutUsTeam->image3) }}" alt="{{ $editAboutUsTeam->image3 }}">
-                            @error('image3')
+                            <input class="form-control @error('leftImage') is-invalid @enderror" name="leftImage" id="leftImage" type="file" />
+                            @if($editAboutUsTeam->leftImage !== null)
+                                <img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $editAboutUsTeam->leftImage) }}" alt="{{ $editAboutUsTeam->leftName }}">
+                            @endif
+                            @error('leftImage')
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
+                            <strong>{{ $message }}</strong>
+                        </span>
                             @enderror
                         </div>
                     </div>
@@ -223,13 +159,36 @@
                     <div class="mb-3 row pt-4">
                         <label class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-2">
-                            <button class="btn btn-primary" type="submit">Update</button>
+                            <button class="btn btn-primary" type="submit">Save</button>
                         </div>
                     </div>
-
                 </form>
-                <!-- Contact form End -->
             </div>
+
         </div>
     </div>
 @endsection
+
+@push('js')
+    {{--For Editor--}}
+    <script>
+        tinymce.init({
+            selector: '#rightMessage',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Oswald=oswald; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Poppins=poppins; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+
+            content_style: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap'); body { font-family: Poppins; }"
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: '#leftMessage',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Oswald=oswald; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Poppins=poppins; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+
+            content_style: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap'); body { font-family: Poppins; }"
+        });
+    </script>
+@endpush

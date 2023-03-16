@@ -17,27 +17,27 @@
                      style="background-image: url({{ asset('storage/slider/' . $slider->image) }}); background-size: cover; background-position: center; height: 90vh;">
                     <div class="container position-relative z-index-3 h-100">
                         <div class="row justify-content-center align-items-center h-100">
-                            <div class="col-lg-6">
-                                <div class="d-flex flex-column align-items-center">
-                                    <h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium px-4 mb-2 appear-animation"
+                            <div class="col-lg-8">
+                                <div class="d-flex flex-column align-items-center abc-p">
+                                    <h3 style="padding: 0 10%" class="position-relative abc text-center text-justify font-weight-medium mb-2 appear-animation"
                                         data-appear-animation="fadeInDownShorter"
                                         data-plugin-options="{'minWindowWidth': 0}">
 
-                                        {{ $slider->heading_text }}
+                                        {!! $slider->heading_text !!}
 
                                     </h3>
-                                    <p class="text-color-light font-weight-light opacity-7 text-center mt-2 mb-4"
+                                    <p class="font-weight-light text-center mt-2 mb-4"
                                        data-appear-animation="fadeInDownShorter"
                                        data-plugin-options="{'minWindowWidth': 0}">
 
-                                        {{ $slider->sub_text }}
+                                        {!! $slider->sub_text !!}
 
                                     </p>
 
                                     <a href="{{ $slider->link }}"
-                                       class="btn custom-button btn-rounded font-weight-bold opacity-7 text-center mt-2 mb-4"
+                                       class="btn text-uppercase custom-button btn-rounded font-weight-bold opacity-10 text-3 text-center mt-2 mb-4"
                                        data-appear-animation="fadeInDownShorter"
-                                       data-plugin-options="{'minWindowWidth': 0}">Click Here For More!</a>
+                                       data-plugin-options="{'minWindowWidth': 0}">Click Here</a>
                                 </div>
                             </div>
                         </div>
@@ -62,9 +62,9 @@
                     style="animation-delay: 200ms;">
                     <h2 class="font-weight-bold text-color-black text-7 mb-2 about_us_custom">{{ $aboutUs->heading }}</h2>
                     <p class="lead font-weight-light text-color-black text-4 text-justify">
-                        {!!  nl2br(e(Str::limit($aboutUs->description, 300))) !!}
+                        {!! (Str::limit($aboutUs->description, 500)) !!}
                     </p>
-                    <a href="{{ $aboutUs->link }}" class="btn btn-dark-scale-2 btn-px-5 btn-py-2 text-2">LEARN MORE</a>
+                    <a href="{{ $aboutUs->link }}" class="btn btn-dark-scale-2 btn-px-5 btn-py-2 text-2">READ MORE</a>
                 </div>
                 <div class="col-9 offset-lg-1 col-lg-5 order-1 order-lg-2">
                     <img class="img-fluid box-shadow-3 my-2 border-radius"
@@ -92,7 +92,6 @@
                     <div class="row">
 
                         @foreach($companies as $company)
-
                             <style>
                                 html .bg-hover-light:hover {
                                     background-color: #f7f7f7!important;
@@ -104,13 +103,13 @@
                                 style="animation-delay: 900ms;">
                                 <a class="text-decoration-none link-success" href="{{ $company->link }}">
                                     <div class="featured-box featured-box-effect-4">
-                                        <div class="box-content">
+                                        <div class="box-content companyFrontEndCss">
                                             <img
                                                 class="icon-featured icon-layers icons text-color-light bg-color-primary"
                                                 src="{{ asset('storage/company/companies/' . $company->image) }}"
                                                 alt="{{ $company->name }}">
                                             <h4 class="font-weight-bold">{{ $company->name }}</h4>
-                                            <p class="px-3">{{ $company->text }}</p>
+                                            <p class="px-3 text-justify">{!! \Illuminate\Support\Str::limit($company->text, 200) !!}</p>
                                         </div>
                                     </div>
                                 </a>

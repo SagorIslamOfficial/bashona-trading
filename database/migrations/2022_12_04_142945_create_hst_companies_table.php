@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('hst_companies', function (Blueprint $table) {
             $table->id();
             $table->string('headingCompanies');
-            $table->longText('subTextCompanies');
+            $table->longText('subTextCompanies')->nullable();
             $table->string('headingCompanyTeam');
-            $table->longText('subTextCompanyTeam');
+            $table->longText('subTextCompanyTeam')->nullable();
             $table->timestamps();
         });
     }

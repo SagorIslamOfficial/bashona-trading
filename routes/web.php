@@ -2,6 +2,7 @@
 
 //Import Controllers
 use App\Http\Controllers\BackEnd\AboutUs\AboutUsController;
+use App\Http\Controllers\BackEnd\AboutUs\AboutUsMessageController;
 use App\Http\Controllers\BackEnd\AboutUs\AboutUsTeamController;
 use App\Http\Controllers\BackEnd\BackendController;
 use App\Http\Controllers\BackEnd\ClientController;
@@ -24,13 +25,14 @@ use App\Http\Controllers\BackEnd\Company\SingleCompany\Tns\TnsAboutController;
 use App\Http\Controllers\BackEnd\Company\SingleCompany\Tns\TnsTeamController;
 use App\Http\Controllers\BackEnd\Contact\AddressController;
 use App\Http\Controllers\BackEnd\Contact\MapController;
+use App\Http\Controllers\BackEnd\Contact\WhatsAppController;
 use App\Http\Controllers\BackEnd\Gallery\GalleryCategoryController;
 use App\Http\Controllers\BackEnd\Gallery\GalleryItemController;
 use App\Http\Controllers\BackEnd\Home\FooterSocialLinkController;
-use App\Http\Controllers\BackEnd\Home\FooterTagController;
 use App\Http\Controllers\BackEnd\Home\PartialHeaderController;
 use App\Http\Controllers\BackEnd\Home\QuickLinkController;
 use App\Http\Controllers\BackEnd\Home\SliderController;
+use App\Http\Controllers\BackEnd\Home\SocialPageIntegrationController;
 use App\Http\Controllers\BackEnd\SectionDivider\AboutUs\HeadingAboutUsController;
 use App\Http\Controllers\BackEnd\SectionDivider\Company\HeadingCompanyController;
 use App\Http\Controllers\BackEnd\SectionDivider\Company\SingleCompany\HeadingArtVentureCompanyController;
@@ -56,7 +58,7 @@ Route::get('/', [FrontEndController::class, 'index'])->name('front-end-home');
 Route::get('/about-us', [FrontEndController::class, 'aboutUs'])->name('front-end-about-us');
 //Company
 Route::group(['prefix' => 'company'], function (){
-    Route::get('/', [FrontEndController::class, 'company'])->name('front-end-company');
+//    Route::get('/', [FrontEndController::class, 'company'])->name('front-end-company');
     //Art Venture Single Company
     Route::group(['prefix' => 'art-venture'], function (){
         Route::get('/', [FrontEndController::class, 'companyArtVenture'])->name('front-end-company-art-venture');
@@ -89,6 +91,9 @@ Route::get('/gallery', [FrontEndController::class, 'gallery'])->name('front-end-
 Route::get('/contact', [FrontEndController::class, 'contact'])->name('front-end-contact');
 Route::post('/contact', [EmailContactController::class, 'store'])->name('front-end-contact-email');
 
+
+
+
 //BackEnd Controllers
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('dashboard', [BackendController::class, 'dashboard'])->name('admin');
@@ -96,6 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     //About Us
     Route::group(['prefix' => 'about-us'], function (){
         Route::resource('about-us', AboutUsController::class);
+        Route::resource('about-message', AboutUsMessageController::class);
         Route::resource('about-team', AboutUsTeamController::class);
     });
 
@@ -155,6 +161,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'contact'], function (){
         Route::resource('address', AddressController::class);
         Route::resource('map', MapController::class);
+        Route::resource('whatsapp', WhatsAppController::class);
     });
 
     //Mixed
@@ -162,7 +169,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
         Route::resource('client', ClientController::class);
         Route::resource('partial-header', PartialHeaderController::class);
         Route::resource('quick-link', QuickLinkController::class);
-        Route::resource('footer-tag', FooterTagController::class);
+        Route::resource('footer-page-integration', SocialPageIntegrationController::class);
         Route::resource('footer-social', FooterSocialLinkController::class);
         Route::resource('slider', SliderController::class);
     });

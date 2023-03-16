@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('hst_about_us', function (Blueprint $table) {
             $table->id();
             $table->string('headingAboutUs');
-            $table->longText('subTextAboutUs');
+            $table->longText('subTextAboutUs')->nullable();
             $table->string('headingAboutUsTeam');
-            $table->longText('subTextAboutUsTeam');
+            $table->longText('subTextAboutUsTeam')->nullable();
             $table->string('headingAboutUsClient');
-            $table->longText('subTextAboutUsClient');
+            $table->longText('subTextAboutUsClient')->nullable();
             $table->timestamps();
         });
     }

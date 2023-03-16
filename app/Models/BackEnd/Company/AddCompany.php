@@ -11,7 +11,7 @@ class AddCompany extends Model
     use HasFactory;
 
     protected $table = 'add_companies';
-    protected $fillable = ['name', 'slug', 'text', 'link', 'image'];
+    protected $fillable = ['name', 'slug', 'text', 'link', 'image', 'aboutImage'];
 
     //URL name define
     public function editPath() {

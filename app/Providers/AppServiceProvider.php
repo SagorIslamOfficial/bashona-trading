@@ -27,7 +27,5 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
         Paginator::useBootstrapFour();
-
-        Blade::setEchoFormat('nl2br(e(%s))');
     }
 }

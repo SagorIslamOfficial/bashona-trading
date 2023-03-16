@@ -29,7 +29,7 @@
                     @foreach($indexConnectToFlyAbout as $connectToFlyAbout)
                         <tr>
                             <td>{{ $connectToFlyAbout->title }}</td>
-                            <td>{{ $connectToFlyAbout->text }}</td>
+                            <td>{!! $connectToFlyAbout->text !!}</td>
                             <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/company/all-company/connect-to-fly/about/' . $connectToFlyAbout->image) }}" alt="{{ $connectToFlyAbout->title }}"></td>
                             <td>
                                 <a class="btn btn-success" href="{{ $connectToFlyAbout->editPath() }}"> EDIT </a>

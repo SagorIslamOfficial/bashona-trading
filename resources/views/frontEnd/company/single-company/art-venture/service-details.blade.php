@@ -17,7 +17,7 @@
                         <div class="col-md-12 align-self-center order-1">
                             <ul class="breadcrumb d-block text-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
                                 <li><a href="{{ route('front-end-home') }}">Home</a></li>
-                                <li><a href="{{ route('front-end-company-art-venture') }}">Service</a></li>
+                                <li><a href="{{ route('front-end-service') }}">Service</a></li>
                                 <li class="active">{{ $singleCompanyArtVentureServiceItem->name }}</li>
                             </ul>
                         </div>
@@ -61,7 +61,7 @@
         <div class="row pt-4 mt-2 mb-5">
             <div class="col-md-7 mb-4 mb-md-0">
                 <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong class="font-weight-extra-bold">{{ $singleCompanyArtVentureServiceItem->project_heading }}</strong></h2>
-                <p class="text-justify">{!! nl2br(e($singleCompanyArtVentureServiceItem->project_description)) !!}</p>
+                <p class="text-justify">{!! $singleCompanyArtVentureServiceItem->project_description !!}</p>
             </div>
             <div class="col-md-5">
                 @if($singleCompanyArtVentureServiceItem->project_details_heading == !null)

@@ -40,9 +40,7 @@ class HeadingCompanyController extends Controller
     {
         $request->validate([
             'headingCompanies' => 'required',
-            'subTextCompanies' => 'required',
-            'headingCompanyTeam' => 'required',
-            'subTextCompanyTeam' => 'required'
+            'headingCompanyTeam' => 'required'
         ]);
 
         $storeCompany = new Company();
@@ -91,9 +89,7 @@ class HeadingCompanyController extends Controller
     {
         $request->validate([
             'headingCompanies' => 'required',
-            'subTextCompanies' => 'required',
-            'headingCompanyTeam' => 'required',
-            'subTextCompanyTeam' => 'required'
+            'headingCompanyTeam' => 'required'
         ]);
 
         $updateCompany = Company::findOrFail($id);

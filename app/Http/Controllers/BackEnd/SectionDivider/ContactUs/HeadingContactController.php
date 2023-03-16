@@ -40,9 +40,7 @@ class HeadingContactController extends Controller
     {
         $request->validate([
             'headingContact' => 'required',
-            'subTextContact' => 'required',
-            'headingContactUs' => 'required',
-            'subTextContactUs' => 'required'
+            'headingContactUs' => 'required'
         ]);
 
         $storeContact = new Contact();
@@ -91,9 +89,7 @@ class HeadingContactController extends Controller
     {
         $request->validate([
             'headingContact' => 'required',
-            'subTextContact' => 'required',
-            'headingContactUs' => 'required',
-            'subTextContactUs' => 'required'
+            'headingContactUs' => 'required'
         ]);
 
         $updateContact = Contact::findOrFail($id);

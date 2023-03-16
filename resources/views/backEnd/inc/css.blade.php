@@ -21,8 +21,20 @@
     <link href="{{ asset('backEnd/vendors/simplebar/css/simplebar.css') }}" rel="stylesheet">
     <link href="{{ asset('backEnd/css/vendors/simplebar.css') }}" rel="stylesheet">
 
+    <script src="https://cdn.tiny.cloud/1/638r1s8j3adyh4boh2v1yg1z0kzee5vnfll0hbby4899vm4p/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
     <!-- Datatable CSS install -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+    </style>
+
+    <style>
+        td>p span {
+            font-size: 16px !important;
+        }
+    </style>
 
     <!-- Main styles for this application-->
     <link href="{{ asset('backEnd/css/style.css') }}" rel="stylesheet">

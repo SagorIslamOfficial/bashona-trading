@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('hst_services', function (Blueprint $table) {
             $table->id();
             $table->string('headingService');
-            $table->longText('subTextService');
+            $table->longText('subTextService')->nullable();
             $table->timestamps();
         });
     }

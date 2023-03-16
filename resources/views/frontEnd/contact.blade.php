@@ -33,19 +33,19 @@
     <!-- Office Address Start -->
     <div class="container">
         <div class="row py-4">
-            @foreach($addresses as $address)
+            @foreach($addre as $addr)
                 <div class="col-lg-6 col-md-6 col" style="padding-left: 15%">
                     <div class="appear-animation animated fadeIn appear-animation-visible pb-5" data-appear-animation="fadeIn" data-appear-animation-delay="800" style="animation-delay: 800ms">
-                        <h4 class="mt-2 mb-1"><strong> {{ $address->office_location }}</strong></h4>
+                        <h4 class="mt-2 mb-1"><strong> {{ $addr->office_location }}</strong></h4>
                         <ul class="list list-icons list-icons-style-2 mt-2">
-                            <li><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> {{ $address->address }}</li>
+                            <li><i class="fas fa-map-marker-alt top-6"></i> <strong class="text-dark">Address:</strong> {{ $addr->address }}</li>
                             <li>
                                 <i class="fas fa-phone top-6"></i><strong class="text-dark">Phone:</strong>
-                                <a style="color: #4CBFC3" href="tel:{{ $address->phone }}"><span>{{ $address->phone }}</span></a>
+                                <a style="color: #4CBFC3" href="tel:{{ $addr->phone }}"><span>{{ $addr->phone }}</span></a>
                             </li>
                             <li>
                                 <i class="fas fa-envelope top-6"></i> <strong class="text-dark">Email:</strong>
-                                <a style="color: #4CBFC3" href="mailto:{{ $address->email }}"><span>{{ $address->email }}</span></a>
+                                <a style="color: #4CBFC3" href="mailto:{{ $addr->email }}"><span>{{ $addr->email }}</span></a>
                             </li>
                         </ul>
                     </div>
@@ -144,7 +144,7 @@
                     </div>
                     <div class="row">
                         <div class="form-group col">
-                            <input type="submit" value="Send Message" class="btn btn-primary btn-modern" data-loading-text="Loading..." />
+                            <input type="submit" value="Send Message" class="btn btn-dark-scale-2 btn-modern" data-loading-text="Loading..." />
                         </div>
                     </div>
                 </form>

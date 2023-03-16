@@ -41,11 +41,8 @@ class HeadingAboutUsController extends Controller
     {
         $request->validate([
             'headingAboutUs' => 'required',
-            'subTextAboutUs' => 'required',
             'headingAboutUsTeam' => 'required',
-            'subTextAboutUsTeam' => 'required',
-            'headingAboutUsClient' => 'required',
-            'subTextAboutUsClient' => 'required'
+            'headingAboutUsClient' => 'required'
         ]);
 
         $storeAboutUs = new AboutUs();
@@ -96,11 +93,8 @@ class HeadingAboutUsController extends Controller
     {
         $request->validate([
             'headingAboutUs' => 'required',
-            'subTextAboutUs' => 'required',
             'headingAboutUsTeam' => 'required',
-            'subTextAboutUsTeam' => 'required',
-            'headingAboutUsClient' => 'required',
-            'subTextAboutUsClient' => 'required'
+            'headingAboutUsClient' => 'required'
         ]);
 
         $updateAboutUs = AboutUs::findOrFail($id);

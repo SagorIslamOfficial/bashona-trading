@@ -83,12 +83,13 @@
                                         <li class="dropdown"><a class="dropdown-item {{ (request()->is('about-us')) ? 'active' : '' }}" href="{{ route('front-end-about-us') }}">About</a>
                                         </li>
                                         <li class="dropdown">
-                                            <a class="dropdown-item dropdown-toggle {{ (request()->is('company*')) ? 'active' : '' }}" href="{{ route('front-end-company') }}">Company</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="{{ (request()->is('company/art-venture*')) ? 'active' : '' }}"><a class="dropdown-item" href="{{ route('front-end-company-art-venture') }}">Art Venture</a></li>
-                                                <li class="{{ (request()->is('company/tns*')) ? 'active' : '' }}"><a class="dropdown-item" href="{{ route('front-end-company-tns') }}">TNS</a></li>
-                                                <li class="{{ (request()->is('company/bd-digital*')) ? 'active' : '' }}"><a class="dropdown-item" href="{{ route('front-end-company-bd-digital') }}">BD Digital</a></li>
-                                                <li class="{{ (request()->is('company/connect-to-fly*')) ? 'active' : '' }}"><a class="dropdown-item" href="{{ route('front-end-company-ctf') }}">Connect To Fly</a></li>
+
+                                            <a class="dropdown-item dropdown-toggle {{ (request()->is('company*')) ? 'active' : '' }}" href="#">Company <i class="fa-solid fa-angle-down padding-left"></i></a>
+                                            <ul class="dropdown-menu" style="background-color: #699EA1 !important; color: #ffffff !important;">
+                                                <li class="{{ (request()->is('company/art-venture*')) ? 'active' : '' }}"><a class="dropdown-item dropdown-menu-color" href="{{ route('front-end-company-art-venture') }}">Art Venture</a></li>
+                                                <li class="{{ (request()->is('company/tns*')) ? 'active' : '' }}"><a class="dropdown-item dropdown-menu-color" href="{{ route('front-end-company-tns') }}">TNS</a></li>
+                                                <li class="{{ (request()->is('company/bd-digital*')) ? 'active' : '' }}"><a class="dropdown-item dropdown-menu-color" href="{{ route('front-end-company-bd-digital') }}">BD Digital</a></li>
+                                                <li class="{{ (request()->is('company/connect-to-fly*')) ? 'active' : '' }}"><a class="dropdown-item dropdown-menu-color" href="{{ route('front-end-company-ctf') }}">Connect To Fly</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown"><a class="dropdown-item {{ (request()->is('service*')) ? 'active' : '' }}" href="{{ route('front-end-service') }}">Service</a></li>

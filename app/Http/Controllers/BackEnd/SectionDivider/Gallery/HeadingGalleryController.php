@@ -39,8 +39,7 @@ class HeadingGalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'headingGallery' => 'required',
-            'subTextGallery' => 'required'
+            'headingGallery' => 'required'
         ]);
 
         $storeGallery = new Gallery();
@@ -86,8 +85,7 @@ class HeadingGalleryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'headingGallery' => 'required',
-            'subTextGallery' => 'required'
+            'headingGallery' => 'required'
         ]);
 
         $updateGallery = Gallery::findOrFail($id);

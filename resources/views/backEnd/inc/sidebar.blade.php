@@ -61,12 +61,12 @@
                         Quick Link</a>
                 </li>
                 <li class="nav-group">
-                    <a class="nav-link {{ (request()->is('admin/footer-tag*')) ? 'active' : '' }}"
-                       href="{{ route('footer-tag.index') }}">
+                    <a class="nav-link {{ (request()->is('admin/footer-page-integration*')) ? 'active' : '' }}"
+                       href="{{ route('footer-page-integration.index') }}">
                         <svg class="nav-icon">
                             <use xlink:href="{{ asset('backEnd/vendors/@coreui/icons/svg/free.svg#cil-tag') }}"></use>
                         </svg>
-                        Footer Tag</a>
+                        Social Page Integration</a>
                 </li>
                 <li class="nav-group">
                     <a class="nav-link {{ (request()->is('admin/footer-social*')) ? 'active' : '' }}"
@@ -89,6 +89,9 @@
                 <li class="nav-item"><a
                         class="nav-link {{ (request()->is('admin/about-us/about-us*')) ? 'active' : '' }}"
                         href="{{ route('about-us.index') }}"><span class="nav-icon"></span>About</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {{ (request()->is('admin/about-us/about-message*')) ? 'active' : '' }}"
+                        href="{{ route('about-message.index') }}"><span class="nav-icon"></span>Message</a></li>
                 <li class="nav-item"><a
                         class="nav-link {{ (request()->is('admin/about-us/about-team*')) ? 'active' : '' }}"
                         href="{{ route('about-team.index') }}"><span class="nav-icon"></span>Team</a></li>
@@ -269,6 +272,8 @@
                 </li>
                 <li class="nav-item"><a class="nav-link {{ (request()->is('admin/contact/map*')) ? 'active' : '' }}"
                                         href="{{ route('map.index') }}"><span class="nav-icon"></span>Map</a></li>
+                <li class="nav-item"><a class="nav-link {{ (request()->is('admin/contact/whatsapp*')) ? 'active' : '' }}"
+                                        href="{{ route('whatsapp.index') }}"><span class="nav-icon"></span>Whats App</a></li>
             </ul>
         </li>
 

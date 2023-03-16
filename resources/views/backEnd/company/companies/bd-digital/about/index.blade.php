@@ -29,7 +29,7 @@
                     @foreach($indexBdDigitalAbout as $bdDigitalAbout)
                         <tr>
                             <td>{{ $bdDigitalAbout->title }}</td>
-                            <td>{{ $bdDigitalAbout->text }}</td>
+                            <td>{!! $bdDigitalAbout->text !!}</td>
                             <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/company/all-company/bd-digital/about/' . $bdDigitalAbout->image) }}" alt="{{ $bdDigitalAbout->title }}"></td>
                             <td>
                                 <a class="btn btn-success" href="{{ $bdDigitalAbout->editPath() }}"> EDIT </a>

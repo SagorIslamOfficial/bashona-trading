@@ -40,11 +40,8 @@ class HeadingBdDigitalCompanyController extends Controller
     {
         $request->validate([
             'headingBdDigitalCompany' => 'required',
-            'subTextBdDigitalCompany' => 'required',
             'headingBdDigitalCompanyService' => 'required',
-            'subTextBdDigitalCompanyService' => 'required',
-            'headingBdDigitalCompanyTeam' => 'required',
-            'subTextBdDigitalCompanyTeam' => 'required'
+            'headingBdDigitalCompanyTeam' => 'required'
         ]);
 
         $storeBdDigitalCompany = new BdDigitalCompany();
@@ -95,11 +92,8 @@ class HeadingBdDigitalCompanyController extends Controller
     {
         $request->validate([
             'headingBdDigitalCompany' => 'required',
-            'subTextBdDigitalCompany' => 'required',
             'headingBdDigitalCompanyService' => 'required',
-            'subTextBdDigitalCompanyService' => 'required',
-            'headingBdDigitalCompanyTeam' => 'required',
-            'subTextBdDigitalCompanyTeam' => 'required'
+            'headingBdDigitalCompanyTeam' => 'required'
         ]);
 
         $updateBdDigitalCompany = BdDigitalCompany::findOrFail($id);

@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('hst_art_venture_companies', function (Blueprint $table) {
             $table->id();
             $table->string('headingArtVentureCompany');
-            $table->longText('subTextArtVentureCompany');
+            $table->longText('subTextArtVentureCompany')->nullable();
             $table->string('headingArtVentureCompanyService');
-            $table->longText('subTextArtVentureCompanyService');
+            $table->longText('subTextArtVentureCompanyService')->nullable();
             $table->string('headingArtVentureCompanyTeam');
-            $table->longText('subTextArtVentureCompanyTeam');
+            $table->longText('subTextArtVentureCompanyTeam')->nullable();
             $table->timestamps();
         });
     }

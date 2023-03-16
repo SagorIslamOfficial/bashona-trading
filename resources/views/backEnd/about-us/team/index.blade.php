@@ -5,8 +5,8 @@
 @section('content')
     <div class="example">
         <h5>
-            {{ $indexAboutUsTeam->count() < 1 ? 'Click here for create new Slider' : "" }}
-            <a  class="{{ $indexAboutUsTeam->count() < 1 ? ' ' : "text-danger btn disabled" }}" style="margin-left: 1% !important" href="{{ route('about-team.create') }}">
+            {{ $indexAboutUsTeam->count() < 15 ? 'Click here for create new Slider' : "" }}
+            <a  class="{{ $indexAboutUsTeam->count() < 15 ? ' ' : "text-danger btn disabled" }}" style="margin-left: 1% !important" href="{{ route('about-team.create') }}">
                 <svg class="nav-icon text-bg-success" style="height: 25px !important; width: 25px !important;"><use xlink:href="{{ asset('backEnd/vendors/@coreui/icons/svg/brand.svg#cib-addthis') }}"></use></svg>
             </a>
         </h5>
@@ -18,15 +18,14 @@
                 <table class="table">
                     <thead class="">
                     <tr>
-                        <th>Name 1</th>
-                        <th>Position 1</th>
-                        <th>Image 1</th>
-                        <th>Name 2</th>
-                        <th>Position 2</th>
-                        <th>Image 2</th>
-                        <th>Name 3</th>
-                        <th>Position 3</th>
-                        <th>Image 3</th>
+                        <th>Right Name</th>
+                        <th>Right Position</th>
+                        <th>Right Image</th>
+
+                        <th>Left Name</th>
+                        <th>Left Position</th>
+                        <th>Left Image</th>
+
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -34,15 +33,20 @@
 
                     @foreach($indexAboutUsTeam as $aboutUsTeam)
                         <tr>
-                            <td>{{ $aboutUsTeam->name1 }}</td>
-                            <td>{{ $aboutUsTeam->position1 }}</td>
-                            <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $aboutUsTeam->image1) }}" alt="{{ $aboutUsTeam->name1 }}"></td>
-                            <td>{{ $aboutUsTeam->name2 }}</td>
-                            <td>{{ $aboutUsTeam->position2 }}</td>
-                            <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $aboutUsTeam->image2) }}" alt="{{ $aboutUsTeam->name2 }}"></td>
-                            <td>{{ $aboutUsTeam->name3 }}</td>
-                            <td>{{ $aboutUsTeam->position3 }}</td>
-                            <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $aboutUsTeam->image3) }}" alt="{{ $aboutUsTeam->name3 }}"></td>
+                            <td>{{ $aboutUsTeam->rightName }}</td>
+                            <td>{{ $aboutUsTeam->rightPosition }}</td>
+                            <td>{!! (Str::limit($aboutUsTeam->rightMessage, 70)) !!}</td>
+                            <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $aboutUsTeam->rightImage) }}" alt="{{ $aboutUsTeam->rightName }}"></td>
+
+                            <td>{{ $aboutUsTeam->leftName }}</td>
+                            <td>{{ $aboutUsTeam->leftPosition }}</td>
+                            <td>{!! (Str::limit($aboutUsTeam->leftMessage, 70)) !!}</td>
+                            @if($aboutUsTeam->leftImage !== null)
+                                <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/about-us/team/' . $aboutUsTeam->leftImage) }}" alt="{{ $aboutUsTeam->leftName }}"></td>
+                            @else
+                                'no image'
+                            @endif
+
                             <td>
                                 <a class="btn btn-success" href="{{ $aboutUsTeam->editPath() }}"> EDIT </a>
                                 <form class="d-inline" action="{{ route('about-team.destroy', $aboutUsTeam->id) }}" method="post">

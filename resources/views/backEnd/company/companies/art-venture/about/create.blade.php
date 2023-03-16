@@ -29,9 +29,9 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="text">Text</label>
+                        <label class="col-sm-2 col-form-label" for="artVentureAbout">Text</label>
                         <div class="col-sm-8">
-                            <textarea name="text" placeholder="Write your Art Venture About Text" rows="5" class="form-control @error('text') is-invalid @enderror" id="text"></textarea>
+                            <textarea name="text" placeholder="Write your Art Venture About Text" class="form-control @error('text') is-invalid @enderror" id="artVentureAbout"></textarea>
                             @error('text')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

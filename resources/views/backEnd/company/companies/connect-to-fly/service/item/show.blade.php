@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3"><h6>Project Description</h6></div>
-                        <div class="col-sm-9"><h6>:<span style="padding-left: 2%">{{ $viewConnectToFlyServiceItem->project_description }}</h6></div>
+                        <div class="col-sm-9"><h6>:<span style="padding-left: 2%">{!! $viewConnectToFlyServiceItem->project_description !!}</h6></div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-3"><h6>Project Details Heading</h6></div>

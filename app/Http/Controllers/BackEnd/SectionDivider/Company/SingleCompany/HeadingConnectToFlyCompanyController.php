@@ -40,11 +40,8 @@ class HeadingConnectToFlyCompanyController extends Controller
     {
         $request->validate([
             'headingConnectToFlyCompany' => 'required',
-            'subTextConnectToFlyCompany' => 'required',
             'headingConnectToFlyCompanyService' => 'required',
-            'subTextConnectToFlyCompanyService' => 'required',
-            'headingConnectToFlyCompanyTeam' => 'required',
-            'subTextConnectToFlyCompanyTeam' => 'required'
+            'headingConnectToFlyCompanyTeam' => 'required'
         ]);
 
         $storeConnectToFlyCompany = new ConnectToFlyCompany();
@@ -95,11 +92,8 @@ class HeadingConnectToFlyCompanyController extends Controller
     {
         $request->validate([
             'headingConnectToFlyCompany' => 'required',
-            'subTextConnectToFlyCompany' => 'required',
             'headingConnectToFlyCompanyService' => 'required',
-            'subTextConnectToFlyCompanyService' => 'required',
-            'headingConnectToFlyCompanyTeam' => 'required',
-            'subTextConnectToFlyCompanyTeam' => 'required'
+            'headingConnectToFlyCompanyTeam' => 'required'
         ]);
 
         $updateConnectToFlyCompany = ConnectToFlyCompany::findOrFail($id);

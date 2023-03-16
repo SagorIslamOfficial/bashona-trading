@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('hst_galleries', function (Blueprint $table) {
             $table->id();
             $table->string('headingGallery');
-            $table->longText('subTextGallery');
+            $table->longText('subTextGallery')->nullable();
             $table->timestamps();
         });
     }

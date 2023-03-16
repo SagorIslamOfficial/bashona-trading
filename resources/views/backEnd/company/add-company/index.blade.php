@@ -32,7 +32,7 @@
                         <tr>
                             <th scope="row">{{ $key +1 }}</th>
                             <td>{{ $addCompany->name }}</td>
-                            <td>{{ $addCompany->text }}</td>
+                            <td>{!! $addCompany->text !!}</td>
                             <td>{{ $addCompany->link }}</td>
                             <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/company/companies/' . $addCompany->image) }}" alt="{{ $addCompany->name }}"></td>
                             <td>

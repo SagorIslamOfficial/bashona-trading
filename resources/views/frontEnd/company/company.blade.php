@@ -39,10 +39,10 @@
                             <div class="col-md-6 col-lg-4 appear-animation animated fadeInRightShorter appear-animation-visible bg-hover-light border-radius-2 custom-padding-for-single-company" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="900" style="animation-delay: 900ms;">
                                 <a class="text-decoration-none link-success" href="{{ $addCompany->link }}">
                                     <div class="featured-box featured-box-effect-4">
-                                        <div class="box-content">
+                                        <div class="box-content companyFrontEndCss">
                                             <img class="icon-featured icon-layers icons text-color-light bg-color-primary" src="{{ asset('storage/company/companies/' . $addCompany->image) }}" alt="{{ $addCompany->name }}">
                                             <h4 class="font-weight-bold">{{ $addCompany->name }}</h4>
-                                            <p class="px-3">{{ $addCompany->text }}</p>
+                                            <p class="px-3 text-justify">{!! \Illuminate\Support\Str::limit($addCompany->text, 200) !!}</p>
                                         </div>
                                     </div>
                                 </a>

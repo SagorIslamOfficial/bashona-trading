@@ -44,121 +44,60 @@ class AboutUsTeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name1' => 'required',
-            'position1' => 'required',
-            'description1' => 'required',
-            'phone1' => 'required',
-            'email1' => 'required',
-            'image1' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150',
-            'name2' => 'required',
-            'position2' => 'required',
-            'description2' => 'required',
-            'phone2' => 'required',
-            'email2' => 'required',
-            'image2' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150',
-            'name3' => 'required',
-            'position3' => 'required',
-            'description3' => 'required',
-            'phone3' => 'required',
-            'email3' => 'required',
-            'image3' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150'
+            'rightName' => 'required',
+            'rightPosition' => 'required',
+            'rightMessage' => 'required',
+            'rightPhone' => 'required',
+            'rightEmail' => 'required',
+            'rightImage' => 'required|image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150',
+
+            'leftImage' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150'
         ]);
 
         $storeAboutUsTeam = new AboutUsTeam();
 
         $storeAboutUsTeam->name = "Company Board Members";
 
-        $storeAboutUsTeam->name1 = $request->name1;
-        $storeAboutUsTeam->position1 = $request->position1;
-        $storeAboutUsTeam->description1 = $request->description1;
-        $storeAboutUsTeam->phone1 = $request->phone1;
-        $storeAboutUsTeam->email1 = $request->email1;
+        $storeAboutUsTeam->rightName = $request->rightName;
+        $storeAboutUsTeam->rightPosition = $request->rightPosition;
+        $storeAboutUsTeam->rightMessage = $request->rightMessage;
+        $storeAboutUsTeam->rightPhone = $request->rightPhone;
+        $storeAboutUsTeam->rightEmail = $request->rightEmail;
 
-        //Find form image and storing into a variable
-        $image = $request->file('image1');
-        //Using if statement and ensuring form data is available
+        $image = $request->file('rightImage');
         if (isset($image)) {
-            //Creating image slug
-            $slug = str_slug($request->name1);
-
-            //Make unique name for image
+            $slug = str_slug($request->rightName);
             $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-            //Checking image storage folder, if not available then create a folder
             if (!Storage::disk('public')->exists('about-us/team')) {
                 Storage::disk('public')->makeDirectory('about-us/team');
             }
 
-            //Save image and resize image
             $imageResize = Image::make($image)->resize(450, 450)->stream();
-
-            //And now put the image into storage disk
             Storage::disk('public')->put('about-us/team/' . $imageName, $imageResize);
 
-            //And save data into the database
-            $storeAboutUsTeam->image1 = $imageName;
+            $storeAboutUsTeam->rightImage = $imageName;
         }
 
-        $storeAboutUsTeam->name2 = $request->name2;
-        $storeAboutUsTeam->position2 = $request->position2;
-        $storeAboutUsTeam->description2 = $request->description2;
-        $storeAboutUsTeam->phone2 = $request->phone2;
-        $storeAboutUsTeam->email2 = $request->email2;
+        $storeAboutUsTeam->leftName = $request->leftName;
+        $storeAboutUsTeam->leftPosition = $request->leftPosition;
+        $storeAboutUsTeam->leftMessage = $request->leftMessage;
+        $storeAboutUsTeam->leftPhone = $request->leftPhone;
+        $storeAboutUsTeam->leftEmail = $request->leftEmail;
 
-        //Find form image and storing into a variable
-        $image = $request->file('image2');
-        //Using if statement and ensuring form data is available
+        $image = $request->file('leftImage');
         if (isset($image)) {
-            //Creating image slug
-            $slug = str_slug($request->name2);
-
-            //Make unique name for image
+            $slug = str_slug($request->leftName);
             $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-            //Checking image storage folder, if not available then create a folder
             if (!Storage::disk('public')->exists('about-us/team')) {
                 Storage::disk('public')->makeDirectory('about-us/team');
             }
 
-            //Save image and resize image
             $imageResize = Image::make($image)->resize(450, 450)->stream();
-
-            //And now put the image into storage disk
             Storage::disk('public')->put('about-us/team/' . $imageName, $imageResize);
 
-            //And save data into the database
-            $storeAboutUsTeam->image2 = $imageName;
-        }
-
-        $storeAboutUsTeam->name3 = $request->name3;
-        $storeAboutUsTeam->position3 = $request->position3;
-        $storeAboutUsTeam->description3 = $request->description3;
-        $storeAboutUsTeam->phone3 = $request->phone3;
-        $storeAboutUsTeam->email3 = $request->email3;
-
-        //Find form image and storing into a variable
-        $image = $request->file('image3');
-        //Using if statement and ensuring form data is available
-        if (isset($image)) {
-            //Creating image slug
-            $slug = str_slug($request->name3);
-
-            //Make unique name for image
-            $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-
-            //Checking image storage folder, if not available then create a folder
-            if (!Storage::disk('public')->exists('about-us/team')) {
-                Storage::disk('public')->makeDirectory('about-us/team');
-            }
-
-            //Save image and resize image
-            $imageResize = Image::make($image)->resize(450, 450)->stream();
-
-            //And now put the image into storage disk
-            Storage::disk('public')->put('about-us/team/' . $imageName, $imageResize);
-
-            //And save data into the database
-            $storeAboutUsTeam->image3 = $imageName;
+            $storeAboutUsTeam->leftImage = $imageName;
         }
 
         $storeAboutUsTeam->save();
@@ -198,135 +137,68 @@ class AboutUsTeamController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name1' => 'required',
-            'position1' => 'required',
-            'description1' => 'required',
-            'phone1' => 'required',
-            'email1' => 'required',
-            'image1' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150',
-            'name2' => 'required',
-            'position2' => 'required',
-            'description2' => 'required',
-            'phone2' => 'required',
-            'email2' => 'required',
-            'image2' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150',
-            'name3' => 'required',
-            'position3' => 'required',
-            'description3' => 'required',
-            'phone3' => 'required',
-            'email3' => 'required',
-            'image3' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150'
+            'rightName' => 'required',
+            'rightPosition' => 'required',
+            'rightMessage' => 'required',
+            'rightPhone' => 'required',
+            'rightEmail' => 'required',
+            'rightImage' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150',
+
+            'leftImage' => 'image|mimes:jpg,jpeg,png,bmp,gif,svg,webp|max:150'
         ]);
 
         $updateAboutUsTeam = AboutUsTeam::findOrFail($id);
 
-        $updateAboutUsTeam->name1 = $request->name1;
-        $updateAboutUsTeam->position1 = $request->position1;
-        $updateAboutUsTeam->description1 = $request->description1;
-        $updateAboutUsTeam->phone1 = $request->phone1;
-        $updateAboutUsTeam->email1 = $request->email1;
+        $updateAboutUsTeam->rightName = $request->rightName;
+        $updateAboutUsTeam->rightPosition = $request->rightPosition;
+        $updateAboutUsTeam->rightMessage = $request->rightMessage;
+        $updateAboutUsTeam->rightPhone = $request->rightPhone;
+        $updateAboutUsTeam->rightEmail = $request->rightEmail;
 
-        //Find form image and storing into a variable
-        $image = $request->file('image1');
-        //Using if statement and ensuring form data is available
+        $image = $request->file('rightImage');
         if (isset($image)) {
-            //Creating image slug
-            $slug = str_slug($request->name1);
-
-            //Make unique name for image
+            $slug = str_slug($request->rightName);
             $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-            //Checking image storage folder, if not available then create a folder
             if (!Storage::disk('public')->exists('about-us/team')) {
                 Storage::disk('public')->makeDirectory('about-us/team');
             }
-            //Delete old image
-            if (Storage::disk('public')->exists('about-us/team/'. $updateAboutUsTeam->image1)){
-                Storage::disk('public')->delete('about-us/team/'. $updateAboutUsTeam->image1);
+            if (Storage::disk('public')->exists('about-us/team/'. $updateAboutUsTeam->rightImage)){
+                Storage::disk('public')->delete('about-us/team/'. $updateAboutUsTeam->rightImage);
             }
 
-            //Save image and resize image
             $imageResize = Image::make($image)->resize(450, 450)->stream();
-
-            //And now put the image into storage disk
             Storage::disk('public')->put('about-us/team/' . $imageName, $imageResize);
 
-            //And save data into the database
-            $updateAboutUsTeam->name1 = $imageName;
+            $updateAboutUsTeam->rightImage = $imageName;
         }
 
-        $updateAboutUsTeam->name2 = $request->name2;
-        $updateAboutUsTeam->position2 = $request->position2;
-        $updateAboutUsTeam->description2 = $request->description2;
-        $updateAboutUsTeam->phone2 = $request->phone2;
-        $updateAboutUsTeam->email2 = $request->email2;
+        $updateAboutUsTeam->leftName = $request->leftName;
+        $updateAboutUsTeam->leftPosition = $request->leftPosition;
+        $updateAboutUsTeam->leftMessage = $request->leftMessage;
+        $updateAboutUsTeam->leftPhone = $request->leftPhone;
+        $updateAboutUsTeam->leftEmail = $request->leftEmail;
 
-        //Find form image and storing into a variable
-        $image = $request->file('image2');
-        //Using if statement and ensuring form data is available
+        $image = $request->file('leftImage');
         if (isset($image)) {
-            //Creating image slug
-            $slug = str_slug($request->name2);
-
-            //Make unique name for image
+            $slug = str_slug($request->leftName);
             $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
 
-            //Checking image storage folder, if not available then create a folder
             if (!Storage::disk('public')->exists('about-us/team')) {
                 Storage::disk('public')->makeDirectory('about-us/team');
             }
-            //Delete old image
-            if (Storage::disk('public')->exists('about-us/team/'. $updateAboutUsTeam->image2)){
-                Storage::disk('public')->delete('about-us/team/'. $updateAboutUsTeam->image2);
+            if (Storage::disk('public')->exists('about-us/team/'. $updateAboutUsTeam->leftName)){
+                Storage::disk('public')->delete('about-us/team/'. $updateAboutUsTeam->leftName);
             }
 
-            //Save image and resize image
             $imageResize = Image::make($image)->resize(450, 450)->stream();
-
-            //And now put the image into storage disk
             Storage::disk('public')->put('about-us/team/' . $imageName, $imageResize);
 
-            //And save data into the database
-            $updateAboutUsTeam->image2 = $imageName;
-        }
-
-        $updateAboutUsTeam->name3 = $request->name3;
-        $updateAboutUsTeam->position3 = $request->position3;
-        $updateAboutUsTeam->description3 = $request->description3;
-        $updateAboutUsTeam->phone3 = $request->phone3;
-        $updateAboutUsTeam->email3 = $request->email3;
-
-        //Find form image and storing into a variable
-        $image = $request->file('image3');
-        //Using if statement and ensuring form data is available
-        if (isset($image)) {
-            //Creating image slug
-            $slug = str_slug($request->name3);
-
-            //Make unique name for image
-            $imageName = $slug . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-
-            //Checking image storage folder, if not available then create a folder
-            if (!Storage::disk('public')->exists('about-us/team')) {
-                Storage::disk('public')->makeDirectory('about-us/team');
-            }
-            //Delete old image
-            if (Storage::disk('public')->exists('about-us/team/'. $updateAboutUsTeam->image3)){
-                Storage::disk('public')->delete('about-us/team/'. $updateAboutUsTeam->image3);
-            }
-
-            //Save image and resize image
-            $imageResize = Image::make($image)->resize(450, 450)->stream();
-
-            //And now put the image into storage disk
-            Storage::disk('public')->put('about-us/team/' . $imageName, $imageResize);
-
-            //And save data into the database
-            $updateAboutUsTeam->image3 = $imageName;
+            $updateAboutUsTeam->leftImage = $imageName;
         }
 
         $updateAboutUsTeam->save();
-        return redirect()->route('about-team.index')->with('success', 'About Us Team Saved Successfully :)');
+        return redirect()->route('about-team.index')->with('success', 'About Us Team Updated Successfully :)');
     }
 
     /**
@@ -339,20 +211,15 @@ class AboutUsTeamController extends Controller
     {
         $destroyAboutUsTeam = AboutUsTeam::findOrfail($id);
 
-        if (Storage::disk('public')->exists('about-us/team/' . $destroyAboutUsTeam->image1)) {
-            Storage::disk('public')->delete('about-us/team/' . $destroyAboutUsTeam->image1);
+        if (Storage::disk('public')->exists('about-us/team/' . $destroyAboutUsTeam->rightImage)) {
+            Storage::disk('public')->delete('about-us/team/' . $destroyAboutUsTeam->rightImage);
         }
 
-        if (Storage::disk('public')->exists('about-us/team/' . $destroyAboutUsTeam->image2)) {
-            Storage::disk('public')->delete('about-us/team/' . $destroyAboutUsTeam->image2);
-        }
-
-        if (Storage::disk('public')->exists('about-us/team/' . $destroyAboutUsTeam->image3)) {
-            Storage::disk('public')->delete('about-us/team/' . $destroyAboutUsTeam->image3);
+        if (Storage::disk('public')->exists('about-us/team/' . $destroyAboutUsTeam->leftImage)) {
+            Storage::disk('public')->delete('about-us/team/' . $destroyAboutUsTeam->leftImage);
         }
 
         $destroyAboutUsTeam->delete();
-
         return redirect()->route('about-team.index')->with('success', 'About Us Team deleted successfully !');
     }
 }

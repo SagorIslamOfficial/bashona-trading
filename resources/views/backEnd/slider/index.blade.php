@@ -32,9 +32,9 @@
                     @foreach($indexSliders as $slider)
                         <tr>
                             <th scope="row">1</th>
-                            <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/Slider/' . $slider->image) }}" alt="{{ $slider->name }}"></td>
-                            <td>{{ $slider->heading_text }}</td>
-                            <td>{{ \Illuminate\Support\Str::limit($slider->sub_text, 70) }}</td>
+                            <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/slider/' . $slider->image) }}" alt="{{ $slider->name }}"></td>
+                            <td>{!! $slider->heading_text !!}</td>
+                            <td>{!! \Illuminate\Support\Str::limit($slider->sub_text, 70) !!}</td>
                             <td>{{ $slider->link }}</td>
                             <td>{{ $slider->name }}</td>
                             <td>

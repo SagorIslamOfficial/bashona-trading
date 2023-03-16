@@ -40,11 +40,8 @@ class HeadingArtVentureCompanyController extends Controller
     {
         $request->validate([
             'headingArtVentureCompany' => 'required',
-            'subTextArtVentureCompany' => 'required',
             'headingArtVentureCompanyService' => 'required',
-            'subTextArtVentureCompanyService' => 'required',
-            'headingArtVentureCompanyTeam' => 'required',
-            'subTextArtVentureCompanyTeam' => 'required'
+            'headingArtVentureCompanyTeam' => 'required'
         ]);
 
         $storeArtVentureCompany = new ArtVentureCompany();
@@ -95,11 +92,8 @@ class HeadingArtVentureCompanyController extends Controller
     {
         $request->validate([
             'headingArtVentureCompany' => 'required',
-            'subTextArtVentureCompany' => 'required',
             'headingArtVentureCompanyService' => 'required',
-            'subTextArtVentureCompanyService' => 'required',
-            'headingArtVentureCompanyTeam' => 'required',
-            'subTextArtVentureCompanyTeam' => 'required'
+            'headingArtVentureCompanyTeam' => 'required'
         ]);
 
         $updateArtVentureCompany = ArtVentureCompany::findOrFail($id);

@@ -13,13 +13,13 @@
                             <div class="overflow-hidden pb-2">
                                 <h1 class="text-dark font-weight-bold text-9 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="100" style="animation-delay: 100ms;">
                                     {{ $artVentureHeadingAndSubText->headingArtVentureCompany }}</h1>
-                                <p class="pt-3">{{ $artVentureHeadingAndSubText->subTextArtVentureCompany }}</p>
+                                <p class="pt-3">{!! $artVentureHeadingAndSubText->subTextArtVentureCompany !!}</p>
                             </div>
                         </div>
                         <div class="col-md-12 align-self-center order-1">
                             <ul class="breadcrumb d-block text-center appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="300" style="animation-delay: 300ms;">
                                 <li><a href="{{ route('front-end-home') }}">Home</a></li>
-                                <li><a href="{{ route('front-end-company') }}">Company</a></li>
+{{--                                <li><a href="{{ route('front-end-company') }}">Company</a></li>--}}
                                 <li class="active">Art Venture</li>
                             </ul>
                         </div>
@@ -36,7 +36,7 @@
             <div id="custom-padding" class="row align-items-center justify-content-center justify-content-lg-between pb-lg-0">
                 <div class="col-lg-5 order-2 order-lg-1 pt-4 pt-lg-0 pb-5 pb-lg-0 mt-5 mt-lg-0 appear-animation animated fadeInRightShorter appear-animation-visible" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
                     <h2 class="font-weight-bold text-color-black text-7 mb-2 about_us_custom">{{ $companyArtVentureAbout->title }}</h2>
-                    <p class="lead font-weight-regular text-color-black text-4 text-justify">{!! nl2br(e($companyArtVentureAbout->text)) !!}</p>
+                    <p class="lead font-weight-regular text-color-black text-4 text-justify">{!! $companyArtVentureAbout->text !!}</p>
                 </div>
                 <div class="col-9 offset-lg-1 col-lg-5 order-1 order-lg-2">
                     <img class="img-fluid box-shadow-3 my-2 border-radius" src="{{ asset('storage/company/art-venture/about/' . $companyArtVentureAbout->image) }}" alt="{{ $companyArtVentureAbout->title }}">

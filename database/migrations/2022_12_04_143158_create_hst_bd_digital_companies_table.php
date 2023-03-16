@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('hst_bd_digital_companies', function (Blueprint $table) {
             $table->id();
             $table->string('headingBdDigitalCompany');
-            $table->longText('subTextBdDigitalCompany');
+            $table->longText('subTextBdDigitalCompany')->nullable();
             $table->string('headingBdDigitalCompanyService');
-            $table->longText('subTextBdDigitalCompanyService');
+            $table->longText('subTextBdDigitalCompanyService')->nullable();
             $table->string('headingBdDigitalCompanyTeam');
-            $table->longText('subTextBdDigitalCompanyTeam');
+            $table->longText('subTextBdDigitalCompanyTeam')->nullable();
             $table->timestamps();
         });
     }

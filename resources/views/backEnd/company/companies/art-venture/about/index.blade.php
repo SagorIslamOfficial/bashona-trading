@@ -29,7 +29,7 @@
                     @foreach($indexArtVentureAbout as $artVentureAbout)
                         <tr>
                             <td>{{ $artVentureAbout->title }}</td>
-                            <td>{{ $artVentureAbout->text }}</td>
+                            <td>{!! $artVentureAbout->text !!}</td>
                             <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/company/art-venture/about/' . $artVentureAbout->image) }}" alt="{{ $artVentureAbout->title }}"></td>
                             <td>
                                 <a class="btn btn-success" href="{{ $artVentureAbout->editPath() }}"> EDIT </a>

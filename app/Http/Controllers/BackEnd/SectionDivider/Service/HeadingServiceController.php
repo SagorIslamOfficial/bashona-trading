@@ -39,8 +39,7 @@ class HeadingServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'headingService' => 'required',
-            'subTextService' => 'required'
+            'headingService' => 'required'
         ]);
 
         $storeService = new Service();
@@ -86,8 +85,7 @@ class HeadingServiceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'headingService' => 'required',
-            'subTextService' => 'required'
+            'headingService' => 'required'
         ]);
 
         $updateService = Service::findOrFail($id);

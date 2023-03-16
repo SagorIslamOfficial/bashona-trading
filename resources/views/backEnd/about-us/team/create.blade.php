@@ -7,20 +7,23 @@
         <h5>
             Click here to all About Us Team
             <a class="" style="margin-left: 1% !important" href="{{ route('about-team.index') }}">
-                <svg class="nav-icon text-success" style="height: 25px !important; width: 25px !important;"><use xlink:href="{{ asset('backEnd/vendors/@coreui/icons/svg/free.svg#cil-media-skip-backward') }}"></use></svg>
+                <svg class="nav-icon text-success" style="height: 25px !important; width: 25px !important;">
+                    <use
+                        xlink:href="{{ asset('backEnd/vendors/@coreui/icons/svg/free.svg#cil-media-skip-backward') }}"></use>
+                </svg>
             </a>
         </h5>
+
         <div class="tab-content rounded-bottom">
+
             <div class="tab-pane p-3 active preview" role="tabpanel" id="preview-824">
-                <!-- Contact form start -->
                 <form action="{{ route('about-team.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name1">Name 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightName">Right Side Name</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('name1') is-invalid @enderror" name="name1" id="name1" value="{{ old('name1') }}" type="text" placeholder="Write your About Us Team Name1" />
-                            @error('name1')
+                            <input class="form-control @error('rightName') is-invalid @enderror" name="rightName" id="rightName" value="{{ old('rightName') }}" type="text" placeholder="Right Side About Us Team Name"/>
+                            @error('rightName')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -28,10 +31,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="position1">Position 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightPosition">Right Side Position</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('position1') is-invalid @enderror" name="position1" id="position1" value="{{ old('position1') }}" type="text" placeholder="Write your About Us Team Position1" />
-                            @error('position1')
+                            <input class="form-control @error('rightPosition') is-invalid @enderror" name="rightPosition" id="rightPosition" value="{{ old('rightPosition') }}" type="text" placeholder="Right Side About Us Team Position"/>
+                            @error('rightPosition')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -39,10 +42,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="description1">Description 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightMessage">Right Side Message</label>
                         <div class="col-sm-8">
-                            <textarea name="description1" placeholder="Write your About Us Team Description1 here" rows="5" class="form-control @error('description1') is-invalid @enderror" id="description1"></textarea>
-                            @error('description1')
+                            <textarea name="rightMessage" placeholder="Right Side About Us Team Message here" class="form-control @error('rightMessage') is-invalid @enderror" id="rightMessage">{{ old('rightMessage') }}</textarea>
+                            @error('rightMessage')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -50,10 +53,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="phone1">Phone 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightPhone">Right Side Phone</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('phone1') is-invalid @enderror" name="phone1" id="phone1" value="{{ old('phone1') }}" type="text" placeholder="Write your About Us Team  Phone1" />
-                            @error('phone1')
+                            <input class="form-control @error('rightPhone') is-invalid @enderror" name="rightPhone" id="rightPhone" value="{{ old('rightPhone') }}" type="text" placeholder="Right Side About Us Team  Phone" />
+                            @error('rightPhone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -61,34 +64,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="email1">Email 1</label>
+                        <label class="col-sm-2 col-form-label" for="rightEmail">Right Side Email</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('email1') is-invalid @enderror" name="email1" id="email1" value="{{ old('email1') }}" type="text" placeholder="Write your About Us Team  Email1" />
-                            @error('email1')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="image1">Image 1</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('image1') is-invalid @enderror" name="image1" id="image1" type="file" />
-                            @error('image1')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name2">Name 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('name2') is-invalid @enderror" name="name2" id="name2" value="{{ old('name2') }}" type="text" placeholder="Write your About Us Team Name 2" />
-                            @error('name2')
+                            <input class="form-control @error('rightEmail') is-invalid @enderror" name="rightEmail" id="rightEmail" value="{{ old('rightEmail') }}" type="text" placeholder="Right Side About Us Team  Email" />
+                            @error('rightEmail')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -96,43 +75,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="position2">Position 2</label>
+                        <label class="col-sm-2 col-form-label" for="rightImage">Right Side Image</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('position2') is-invalid @enderror" name="position2" id="position2" value="{{ old('position2') }}" type="text" placeholder="Write your About Us Team Position 2" />
-                            @error('position2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="description2">Description 2</label>
-                        <div class="col-sm-8">
-                            <textarea name="description2" placeholder="Write your About Us Team Description 2 here" rows="5" class="form-control @error('description2') is-invalid @enderror" id="description2"></textarea>
-                            @error('description2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="phone2">Phone 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('phone2') is-invalid @enderror" name="phone2" id="phone2" value="{{ old('phone2') }}" type="text" placeholder="Write your About Us Team Phone 2" />
-                            @error('phone2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="email2"> Email 2</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('email2') is-invalid @enderror" name="email2" id="email2" value="{{ old('email2') }}" type="text" placeholder="Write your About Us Team Email 2" />
-                            @error('email2')
+                            <input class="form-control @error('rightImage') is-invalid @enderror" name="rightImage" id="rightImage" type="file" />
+                            @error('rightImage')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -141,22 +87,10 @@
                     </div>
 
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="image2">Image 2</label>
+                        <label class="col-sm-2 col-form-label" for="leftName">Left Side Name</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('image2') is-invalid @enderror" name="image2" id="image2" type="file" />
-                            @error('image2')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="name3">Name 3</label>
-                        <div class="col-sm-8">
-                            <input class="form-control @error('name3') is-invalid @enderror" name="name3" id="name3" value="{{ old('name3') }}" type="text" placeholder="Write your About Us Team Name 3" />
-                            @error('name3')
+                            <input class="form-control @error('leftName') is-invalid @enderror" name="leftName" id="leftName" value="{{ old('leftName') }}" type="text" placeholder="Left Side About Us Team Name"/>
+                            @error('leftName')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -164,10 +98,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="position3">Position 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftPosition">Left Side Position</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('position3') is-invalid @enderror" name="position3" id="position3" value="{{ old('position3') }}" type="text" placeholder="Write your About Us Team Position 3" />
-                            @error('position3')
+                            <input class="form-control @error('leftPosition') is-invalid @enderror" name="leftPosition" id="leftPosition" value="{{ old('leftPosition') }}" type="text" placeholder="Left Side About Us Team Position"/>
+                            @error('leftPosition')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -175,10 +109,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="description3">Description 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftMessage">Left Side Message</label>
                         <div class="col-sm-8">
-                            <textarea name="description3" placeholder="Write your About Us Team Description 3 here" rows="5" class="form-control @error('description3') is-invalid @enderror" id="description3"></textarea>
-                            @error('description3')
+                            <textarea name="leftMessage" placeholder="Left Side About Us Team Message here" class="form-control @error('leftMessage') is-invalid @enderror" id="leftMessage">{{ old('leftMessage') }}</textarea>
+                            @error('leftMessage')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -186,10 +120,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="phone3">Phone 2</label>
+                        <label class="col-sm-2 col-form-label" for="leftPhone">Left Side Phone</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('phone3') is-invalid @enderror" name="phone3" id="phone3" value="{{ old('phone3') }}" type="text" placeholder="Write your About Us Team Phone 3" />
-                            @error('phone3')
+                            <input class="form-control @error('leftPhone') is-invalid @enderror" name="leftPhone" id="leftPhone" value="{{ old('leftPhone') }}" type="text" placeholder="Left Side About Us Team  Phone" />
+                            @error('leftPhone')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -197,10 +131,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="email3"> Email 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftEmail">Left Side Email</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('email3') is-invalid @enderror" name="email3" id="email2" value="{{ old('email3') }}" type="text" placeholder="Write your About Us Team Email 3" />
-                            @error('email3')
+                            <input class="form-control @error('leftEmail') is-invalid @enderror" name="leftEmail" id="leftEmail" value="{{ old('leftEmail') }}" type="text" placeholder="Left Side About Us Team  Email" />
+                            @error('leftEmail')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -208,10 +142,10 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label class="col-sm-2 col-form-label" for="image3">Image 3</label>
+                        <label class="col-sm-2 col-form-label" for="leftImage">Left Side Image</label>
                         <div class="col-sm-8">
-                            <input class="form-control @error('image3') is-invalid @enderror" name="image3" id="image3" type="file" />
-                            @error('image3')
+                            <input class="form-control @error('leftImage') is-invalid @enderror" name="leftImage" id="leftImage" type="file" />
+                            @error('leftImage')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -226,8 +160,33 @@
                         </div>
                     </div>
                 </form>
-                <!-- Contact form End -->
             </div>
+
         </div>
     </div>
+
 @endsection
+
+@push('js')
+    {{--For Editor--}}
+    <script>
+        tinymce.init({
+            selector: '#rightMessage',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Oswald=oswald; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Poppins=poppins; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+
+            content_style: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap'); body { font-family: Poppins; }"
+        });
+    </script>
+    <script>
+        tinymce.init({
+            selector: '#leftMessage',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+            font_formats: "Andale Mono=andale mono,times; Arial=arial,helvetica,sans-serif; Arial Black=arial black,avant garde; Book Antiqua=book antiqua,palatino; Comic Sans MS=comic sans ms,sans-serif; Courier New=courier new,courier; Georgia=georgia,palatino; Helvetica=helvetica; Impact=impact,chicago; Oswald=oswald; Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; Terminal=terminal,monaco; Times New Roman=times new roman,times; Poppins=poppins; Trebuchet MS=trebuchet ms,geneva; Verdana=verdana,geneva; Webdings=webdings; Wingdings=wingdings,zapf dingbats",
+
+            content_style: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap'); body { font-family: Poppins; }"
+        });
+    </script>
+@endpush

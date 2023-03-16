@@ -40,11 +40,8 @@ class HeadingTnsCompanyController extends Controller
     {
         $request->validate([
             'headingTnsCompany' => 'required',
-            'subTextTnsCompany' => 'required',
             'headingTnsCompanyService' => 'required',
-            'subTextTnsCompanyService' => 'required',
-            'headingTnsCompanyTeam' => 'required',
-            'subTextTnsCompanyTeam' => 'required'
+            'headingTnsCompanyTeam' => 'required'
         ]);
 
         $storeTnsCompany = new TnsCompany();
@@ -95,11 +92,8 @@ class HeadingTnsCompanyController extends Controller
     {
         $request->validate([
             'headingTnsCompany' => 'required',
-            'subTextTnsCompany' => 'required',
             'headingTnsCompanyService' => 'required',
-            'subTextTnsCompanyService' => 'required',
-            'headingTnsCompanyTeam' => 'required',
-            'subTextTnsCompanyTeam' => 'required'
+            'headingTnsCompanyTeam' => 'required'
         ]);
 
         $updateTnsCompany = TnsCompany::findOrFail($id);

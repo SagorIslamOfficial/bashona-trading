@@ -4,8 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@yield('title') {{ config('app.name') }}</title>
     <meta name="keywords" content="Bashona Trading Ltd"/>
-    <meta name="description" content="Bashona Trading Ltd">
-    <meta name="author" content="bashonatrading.com">
+    <meta name="description" content="Import, Export, IT and Design services">
+    <meta name="author" content="https://www.bashonatrading.com/">
+
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Bashona Trading Ltd" />
+    <meta property="og:description"   content="Import, Export, IT and Design services" />
+    <meta property="og:image"         content="https://www.bashonatrading.com/" />
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('frontEnd/img/favicon.png') }}" type="image/x-icon"/>
     <link rel="apple-touch-icon" href="{{ asset('frontEnd/img/favicon.png') }}">
@@ -22,6 +28,7 @@
     <link rel="stylesheet" href="{{ asset('frontEnd/vendor/owl.carousel/assets/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontEnd/vendor/owl.carousel/assets/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontEnd/vendor/magnific-popup/magnific-popup.min.css') }}">
+
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('frontEnd/css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('frontEnd/css/theme-elements.css') }}">

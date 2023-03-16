@@ -29,7 +29,7 @@
                     @foreach($indexTnsAbout as $tnsAbout)
                         <tr>
                             <td>{{ $tnsAbout->title }}</td>
-                            <td>{{ $tnsAbout->text }}</td>
+                            <td>{!! $tnsAbout->text !!}</td>
                             <td><img style="width: 90px; height: 50px;" src="{{ asset('storage/company/all-company/tns/about/' . $tnsAbout->image) }}" alt="{{ $tnsAbout->title }}"></td>
                             <td>
                                 <a class="btn btn-success" href="{{ $tnsAbout->editPath() }}"> EDIT </a>

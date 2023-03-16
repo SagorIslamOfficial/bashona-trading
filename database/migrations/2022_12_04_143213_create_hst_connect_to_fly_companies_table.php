@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('hst_connect_to_fly_companies', function (Blueprint $table) {
             $table->id();
             $table->string('headingConnectToFlyCompany');
-            $table->longText('subTextConnectToFlyCompany');
+            $table->longText('subTextConnectToFlyCompany')->nullable();
             $table->string('headingConnectToFlyCompanyService');
-            $table->longText('subTextConnectToFlyCompanyService');
+            $table->longText('subTextConnectToFlyCompanyService')->nullable();
             $table->string('headingConnectToFlyCompanyTeam');
-            $table->longText('subTextConnectToFlyCompanyTeam');
+            $table->longText('subTextConnectToFlyCompanyTeam')->nullable();
             $table->timestamps();
         });
     }

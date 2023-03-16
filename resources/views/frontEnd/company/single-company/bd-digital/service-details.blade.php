@@ -21,7 +21,7 @@
                                 data-appear-animation="fadeIn" data-appear-animation-delay="300"
                                 style="animation-delay: 300ms;">
                                 <li><a href="{{ route('front-end-home') }}">Home</a></li>
-                                <li><a href="{{ route('front-end-company-bd-digital') }}">Service</a></li>
+                                <li><a href="{{ route('front-end-service') }}">Service</a></li>
                                 <li class="active">{{ $singleCompanyBdDigitalServiceItem->name }}</li>
                             </ul>
                         </div>
@@ -76,7 +76,7 @@
                 <h2 class="text-color-dark font-weight-normal text-5 mb-2"><strong
                         class="font-weight-extra-bold">{{ $singleCompanyBdDigitalServiceItem->project_heading }}</strong>
                 </h2>
-                <p class="text-justify">{!! nl2br(e($singleCompanyBdDigitalServiceItem->project_description)) !!}</p>
+                <p class="text-justify">{!! $singleCompanyBdDigitalServiceItem->project_description !!}</p>
             </div>
             <div class="col-md-5">
                 @if($singleCompanyBdDigitalServiceItem->project_details_heading == !null)

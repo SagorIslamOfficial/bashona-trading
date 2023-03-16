@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('hst_tns_companies', function (Blueprint $table) {
             $table->id();
             $table->string('headingTnsCompany');
-            $table->longText('subTextTnsCompany');
+            $table->longText('subTextTnsCompany')->nullable();
             $table->string('headingTnsCompanyService');
-            $table->longText('subTextTnsCompanyService');
+            $table->longText('subTextTnsCompanyService')->nullable();
             $table->string('headingTnsCompanyTeam');
-            $table->longText('subTextTnsCompanyTeam');
+            $table->longText('subTextTnsCompanyTeam')->nullable();
             $table->timestamps();
         });
     }
