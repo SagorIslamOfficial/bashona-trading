@@ -38,17 +38,5 @@
     <link rel="stylesheet" href="{{ asset('frontEnd/css/custom.css') }}">
     <!-- Head Libs -->
     <script src="{{ asset('frontEnd/vendor/modernizr/modernizr.min.js') }}"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42715764-11"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-
-        gtag('config', 'UA-42715764-11');
-    </script>
 </head>
