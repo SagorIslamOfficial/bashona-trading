@@ -23,14 +23,14 @@
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+#    RewriteRule ^ index.php [L]
 
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
 
     RewriteEngine On
-    RewriteRule ^(.*)$ /index.php [L]
+#    RewriteRule ^(.*)$ /index.php [L]
 
 
     RewriteRule ^(.*)$ /public/$1
