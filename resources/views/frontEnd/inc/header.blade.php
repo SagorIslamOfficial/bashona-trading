@@ -93,7 +93,7 @@
                                             </ul>
                                         </li>
                                         <li class="dropdown"><a class="dropdown-item {{ (request()->is('service*')) ? 'active' : '' }}" href="{{ route('front-end-service') }}">Service</a></li>
-                                        <li class="dropdown"><a class="dropdown-item {!! (request()->is('gallery')) ? 'active' : '' !!}" href="{{ route('front-end-gallery') }}">Gallery</a></li>
+{{--                                        <li class="dropdown"><a class="dropdown-item {!! (request()->is('gallery')) ? 'active' : '' !!}" href="{{ route('front-end-gallery') }}">Gallery</a></li>--}}
                                         <li class="dropdown"><a class="dropdown-item {!! (request()->is('contact')) ? 'active' : '' !!}" href="{{ route('front-end-contact') }}">Contact</a></li>
 
                                     </ul>
